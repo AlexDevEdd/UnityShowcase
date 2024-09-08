@@ -1,0 +1,19 @@
+{
+    "name": "Debug",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e4f11fb771994a44490e078ecaa27d1c",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:5fe4e32cb59846be976e75300ef6a719",
+        "GUID:d1b9bb5a4a49e1a4c931fb112b03d179"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

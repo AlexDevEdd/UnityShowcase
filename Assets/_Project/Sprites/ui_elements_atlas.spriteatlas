@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ui_elements_atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 2a7b0acd3c93eac4db2047e870247ddc, type: 3}
+    - {fileID: 2800000, guid: c64a84b0329eb2a40bf5e1d60e0fc8b6, type: 3}
+    - {fileID: 2800000, guid: 40afaa3352659494790a28a797aba67b, type: 3}
+    - {fileID: 2800000, guid: fcabe002e685bc147918c97e9538d17f, type: 3}
+    - {fileID: 2800000, guid: a33ec0c69d8f44802ade638e1e2bbb3f, type: 3}
+    - {fileID: 2800000, guid: c90d704099eb54a8b971c44989e9ec11, type: 3}
+    - {fileID: 2800000, guid: b6f7c4a2b655645568144e303ee017ec, type: 3}
+    - {fileID: 2800000, guid: 16f90c481956f453296b6b203e2a5140, type: 3}
+    - {fileID: 2800000, guid: cf4c106fc0fd9489580b9e716e4eed17, type: 3}
+    - {fileID: 2800000, guid: 9ef0c11205b6f41a88353f491a8396d1, type: 3}
+    - {fileID: 2800000, guid: df4c3e31041f14adea9bb7423bf6a3ad, type: 3}
+    - {fileID: 2800000, guid: e520e2e852d8b4e4ba14157dbb009e7d, type: 3}
+    - {fileID: 2800000, guid: be40ff228ca528248b495d5025a1e327, type: 3}
+    - {fileID: 2800000, guid: c7f257e206834614cb466857260d15eb, type: 3}
+    - {fileID: 2800000, guid: e2ec4deee22bb40de8467e87fa8a2769, type: 3}
+    - {fileID: 2800000, guid: 358bd270282ea401097181de54f93190, type: 3}
+    - {fileID: 2800000, guid: 9c4000eb1d26d4d89ba88b2d02dc2d61, type: 3}
+    - {fileID: 2800000, guid: 3c2b6ed31132d4fd59b8b065488af0a7, type: 3}
+    - {fileID: 2800000, guid: 32698a0fc608c4853ba163483e5b3dfe, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c90d704099eb54a8b971c44989e9ec11, type: 3}
+  - {fileID: 21300000, guid: 358bd270282ea401097181de54f93190, type: 3}
+  - {fileID: 21300000, guid: c64a84b0329eb2a40bf5e1d60e0fc8b6, type: 3}
+  - {fileID: 21300000, guid: df4c3e31041f14adea9bb7423bf6a3ad, type: 3}
+  - {fileID: 21300000, guid: fcabe002e685bc147918c97e9538d17f, type: 3}
+  - {fileID: 21300000, guid: 9ef0c11205b6f41a88353f491a8396d1, type: 3}
+  - {fileID: 21300000, guid: be40ff228ca528248b495d5025a1e327, type: 3}
+  - {fileID: 21300000, guid: b6f7c4a2b655645568144e303ee017ec, type: 3}
+  - {fileID: 21300000, guid: c7f257e206834614cb466857260d15eb, type: 3}
+  - {fileID: 21300000, guid: 40afaa3352659494790a28a797aba67b, type: 3}
+  - {fileID: 21300000, guid: 3c2b6ed31132d4fd59b8b065488af0a7, type: 3}
+  - {fileID: 21300000, guid: a33ec0c69d8f44802ade638e1e2bbb3f, type: 3}
+  - {fileID: 21300000, guid: 16f90c481956f453296b6b203e2a5140, type: 3}
+  - {fileID: 21300000, guid: e520e2e852d8b4e4ba14157dbb009e7d, type: 3}
+  - {fileID: 21300000, guid: 9c4000eb1d26d4d89ba88b2d02dc2d61, type: 3}
+  - {fileID: 21300000, guid: 2a7b0acd3c93eac4db2047e870247ddc, type: 3}
+  - {fileID: 21300000, guid: e2ec4deee22bb40de8467e87fa8a2769, type: 3}
+  - {fileID: 21300000, guid: 32698a0fc608c4853ba163483e5b3dfe, type: 3}
+  - {fileID: 21300000, guid: cf4c106fc0fd9489580b9e716e4eed17, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Button (Player Activity)
+  - Potion
+  - Button (Close)
+  - ButtonMusic
+  - progress_bar_background
+  - ButtonInactive
+  - progress_bar
+  - Button (Violet)
+  - Coin
+  - Button (Gray)
+  - Check
+  - Button (Orange)
+  - Button (Yellow)
+  - ButtonSound
+  - Settings
+  - Button (Blue)
+  - Gem
+  - Cross
+  - ButtonActive
+  m_RenderDataMap: {}
+  m_Tag: ui_elements_atlas
+  m_IsVariant: 0

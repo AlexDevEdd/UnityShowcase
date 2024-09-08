@@ -61,7 +61,8 @@ namespace SaveLoad
         public async UniTask LoadState()
         {
             var jsonData = await _dataStorage.ReadAsync<Dictionary<string, string>>(SAVE_KEY);
-            _serializer.TryDeserialize(jsonData, out _gameState);
+            if(!jsonData.IsNullOrEmpty())
+                _serializer.TryDeserialize(jsonData, out _gameState);
         }
         
         public async UniTask LoadState(string key)

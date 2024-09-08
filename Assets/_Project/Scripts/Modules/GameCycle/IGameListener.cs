@@ -1,4 +1,4 @@
-namespace Modules.GameCycle
+namespace GameCycle
 {
     public interface IGameListener { }
     

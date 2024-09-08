@@ -1,8 +1,7 @@
 ﻿using System.Linq;
-using Engine;
 using JetBrains.Annotations;
 
-namespace Modules.GameCycle
+namespace GameCycle
 {
     [UsedImplicitly]
     public class GameCycleSystem

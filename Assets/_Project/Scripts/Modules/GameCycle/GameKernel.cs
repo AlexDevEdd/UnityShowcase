@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Modules.GameCycle
+namespace GameCycle
 {
     public class GameKernel : MonoKernel
     {

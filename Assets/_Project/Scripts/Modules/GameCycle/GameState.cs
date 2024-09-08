@@ -1,4 +1,4 @@
-namespace Engine
+namespace GameCycle
 {
     public enum GameState
     {

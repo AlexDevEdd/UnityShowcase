@@ -15,11 +15,11 @@ MonoBehaviour:
   _configs:
     keys: 01000000020000000400000003000000
     values:
-    - Duration: 1
+    - Duration: 0.2
       TitleText: Test_1
-    - Duration: 2
+    - Duration: 0.2
       TitleText: Test_2
-    - Duration: 0.3
+    - Duration: 0.2
       TitleText: Starting
-    - Duration: 5
+    - Duration: 0.2
       TitleText: Loading saves

@@ -29,6 +29,8 @@ namespace Atomic.Entities
         public const int AimTransform = 12; // Transform
         public const int Animator = 13; // Animator
         public const int FireEvent = 14; // EventAction
+        public const int IsRunning = 15; // ReactiveBool
+        public const int RunSpeed = 16; // ReactiveFloat
 
 
         ///Extensions
@@ -283,5 +285,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetFireEvent(this IEntity obj, EventAction value) => obj.SetValue(FireEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveBool GetIsRunning(this IEntity obj) => obj.GetValue<ReactiveBool>(IsRunning);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetIsRunning(this IEntity obj, out ReactiveBool value) => obj.TryGetValue(IsRunning, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddIsRunning(this IEntity obj, ReactiveBool value) => obj.AddValue(IsRunning, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasIsRunning(this IEntity obj) => obj.HasValue(IsRunning);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelIsRunning(this IEntity obj) => obj.DelValue(IsRunning);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetIsRunning(this IEntity obj, ReactiveBool value) => obj.SetValue(IsRunning, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveFloat GetRunSpeed(this IEntity obj) => obj.GetValue<ReactiveFloat>(RunSpeed);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetRunSpeed(this IEntity obj, out ReactiveFloat value) => obj.TryGetValue(RunSpeed, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddRunSpeed(this IEntity obj, ReactiveFloat value) => obj.AddValue(RunSpeed, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasRunSpeed(this IEntity obj) => obj.HasValue(RunSpeed);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelRunSpeed(this IEntity obj) => obj.DelValue(RunSpeed);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetRunSpeed(this IEntity obj, ReactiveFloat value) => obj.SetValue(RunSpeed, value);
     }
 }

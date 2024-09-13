@@ -8,15 +8,19 @@ namespace GamePlay
     {
         private const float GRAVITY_SCALE = 9.81f;
         
+        private IVariable<bool> _isRunning;
         private IValue<float> _moveSpeed;
+        private IValue<float> _runSpeed;
         private IVariable<Vector3> _moveDirection;
         private CharacterController _characterController;
-
+        
         private float _verticalVelocity;
         
         public void Init(IEntity entity)
         {
+            _runSpeed = entity.GetRunSpeed();
             _moveSpeed = entity.GetMoveSpeed();
+            _isRunning = entity.GetIsRunning();
             _moveDirection = entity.GetMoveDirection();
             _characterController = entity.GetCharacterController();
         }
@@ -31,7 +35,8 @@ namespace GamePlay
         {
             if (_moveDirection.Value.magnitude > 0)
             {
-                _characterController.Move( _moveDirection.Value * deltaTime * _moveSpeed.Value);
+                var moveSpeed = _isRunning.Value ? _runSpeed.Value : _moveSpeed.Value;
+                _characterController.Move( _moveDirection.Value * deltaTime * moveSpeed);
             }
         }
 

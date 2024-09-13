@@ -10,6 +10,7 @@ namespace GamePlay
     public class InputReader : PlayerControls.ICharacterActions , IGameStart, IInput
     {
         public event Action<Vector2> OnMoveEvent;
+        public event Action<bool> OnRunEvent;
         public event Action<Vector2> OnAimEvent;
         public event Action OnFireEvent;
 
@@ -66,6 +67,19 @@ namespace GamePlay
                     break;
                 case InputActionPhase.Canceled:
                     OnAimEvent?.Invoke(Vector2.zero);
+                    break;
+            }
+        }
+
+        public void OnRun(InputAction.CallbackContext context)
+        {
+            switch (context.phase)
+            {
+                case InputActionPhase.Performed:
+                    OnRunEvent?.Invoke(true);
+                    break;
+                case InputActionPhase.Canceled:
+                    OnRunEvent?.Invoke(false);
                     break;
             }
         }

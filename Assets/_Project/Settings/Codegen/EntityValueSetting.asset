@@ -66,3 +66,9 @@ MonoBehaviour:
     - id: 14
       name: FireEvent
       type: EventAction
+    - id: 15
+      name: IsRunning
+      type: ReactiveBool
+    - id: 16
+      name: RunSpeed
+      type: ReactiveFloat

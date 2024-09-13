@@ -11,7 +11,10 @@ namespace GamePlay
         private CharacterController _characterController;
         
         [SerializeField]
-        private float _moveSpeed = 5;
+        private float _moveSpeed = 2;
+        
+        [SerializeField]
+        private float _runSpeed = 3;
         
         [SerializeField]
         private Vector3 _moveDirection;
@@ -44,7 +47,9 @@ namespace GamePlay
             entity.AddRotation(new quaternionReactive(transform.rotation));
             
             entity.AddMoveSpeed(_moveSpeed);
+            entity.AddRunSpeed(_runSpeed);
             entity.AddMoveDirection(_moveDirection);
+            entity.AddIsRunning(new ReactiveBool(false));
             entity.AddBehaviour<CharacterMovementBehaviour>();
             
             entity.AddLookingDirection(_lookingDirection);

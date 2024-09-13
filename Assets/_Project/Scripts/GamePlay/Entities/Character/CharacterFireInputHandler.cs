@@ -29,7 +29,6 @@ namespace GamePlay
         private void OnFireEvent()
         {
             _shootEvent?.Invoke();
-            Debug.Log("Fire");
         }
 
         public void OnFinish()

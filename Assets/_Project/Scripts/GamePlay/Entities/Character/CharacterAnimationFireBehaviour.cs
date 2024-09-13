@@ -30,7 +30,7 @@ namespace GamePlay
 
         public void Disable(IEntity entity)
         {
-            Debug.Log("Disable");
+            _fireAction.Unsubscribe(OnFire);
         }
     }
 }

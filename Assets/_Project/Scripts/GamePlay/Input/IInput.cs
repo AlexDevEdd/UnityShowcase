@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GamePlay
 {
-    public interface IInput : IMoveInput, IAimInput, IFireInput { }
+    public interface IInput : IMoveInput, IAimInput, IFireInput, IRunInput { }
     
     public interface IMoveInput
     {
@@ -18,6 +18,11 @@ namespace GamePlay
     public interface IFireInput
     {
         public event Action OnFireEvent;
+    }
+    
+    public interface IRunInput
+    { 
+        public event Action<bool> OnRunEvent;
     }
     
 }

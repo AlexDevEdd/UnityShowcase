@@ -24,6 +24,9 @@ namespace GamePlay
         
         [SerializeField]
         private Transform _aimTransform;
+
+        [SerializeField] 
+        private Animator _animator;
         
         
         public override void Install(IEntity entity)
@@ -46,6 +49,12 @@ namespace GamePlay
             
             entity.AddLookingDirection(_lookingDirection);
             entity.AddBehaviour<CharacterRotationBehaviour>();
+
+            entity.AddAnimator(_animator);
+            entity.AddBehaviour<CharacterAnimationMovementBehaviour>();
+
+            entity.AddFireEvent(new EventAction());
+            entity.AddBehaviour<CharacterAnimationFireBehaviour>();
         }
     }
 }

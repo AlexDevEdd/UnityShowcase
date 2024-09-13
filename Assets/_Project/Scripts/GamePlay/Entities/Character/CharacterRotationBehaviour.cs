@@ -40,7 +40,7 @@ namespace GamePlay
                 _direction.Normalize();
                 
                 _transform.forward = _direction;
-                _rayHitInfo.Value = new Vector3(hitInfo.point.x, _transform.position.y, hitInfo.point.z);
+                _rayHitInfo.Value = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
             }
         }
     }

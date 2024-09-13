@@ -60,3 +60,9 @@ MonoBehaviour:
     - id: 12
       name: AimTransform
       type: Transform
+    - id: 13
+      name: Animator
+      type: Animator
+    - id: 14
+      name: FireEvent
+      type: EventAction

@@ -27,6 +27,8 @@ namespace Atomic.Entities
         public const int RayHitInfo = 10; // ReactiveVector3
         public const int LookingDirection = 11; // ReactiveVector2
         public const int AimTransform = 12; // Transform
+        public const int Animator = 13; // Animator
+        public const int FireEvent = 14; // EventAction
 
 
         ///Extensions
@@ -245,5 +247,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetAimTransform(this IEntity obj, Transform value) => obj.SetValue(AimTransform, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Animator GetAnimator(this IEntity obj) => obj.GetValue<Animator>(Animator);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetAnimator(this IEntity obj, out Animator value) => obj.TryGetValue(Animator, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddAnimator(this IEntity obj, Animator value) => obj.AddValue(Animator, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasAnimator(this IEntity obj) => obj.HasValue(Animator);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelAnimator(this IEntity obj) => obj.DelValue(Animator);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetAnimator(this IEntity obj, Animator value) => obj.SetValue(Animator, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static EventAction GetFireEvent(this IEntity obj) => obj.GetValue<EventAction>(FireEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetFireEvent(this IEntity obj, out EventAction value) => obj.TryGetValue(FireEvent, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddFireEvent(this IEntity obj, EventAction value) => obj.AddValue(FireEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasFireEvent(this IEntity obj) => obj.HasValue(FireEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelFireEvent(this IEntity obj) => obj.DelValue(FireEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetFireEvent(this IEntity obj, EventAction value) => obj.SetValue(FireEvent, value);
     }
 }

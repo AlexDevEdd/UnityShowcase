@@ -2,37 +2,37 @@ namespace GameCycle
 {
     public interface IGameListener { }
     
-    internal interface IGameFinish : IGameListener
+    public interface IGameFinish : IGameListener
     {
         void OnFinish();
     }
     
-    internal interface IGamePause : IGameListener
+    public interface IGamePause : IGameListener
     {
         void OnPause();
     }
     
-    internal interface IGameResume : IGameListener
+    public interface IGameResume : IGameListener
     {
         void OnResume();
     }
     
-    internal interface IGameStart : IGameListener
+    public interface IGameStart : IGameListener
     {
         void OnStart();
     }
 
-    internal interface ITick : IGameListener
+    public interface ITick : IGameListener
     {
         void Tick(float delta);
     }
     
-    internal interface IFixedTick : IGameListener
+    public interface IFixedTick : IGameListener
     {
         void FixedTick(float fixedDelta);
     }
     
-    internal interface ILateTick : IGameListener
+    public interface ILateTick : IGameListener
     {
         void LateTick(float delta);
     }

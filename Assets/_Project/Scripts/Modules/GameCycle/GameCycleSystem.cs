@@ -10,10 +10,7 @@ namespace GameCycle
         private readonly IGamePause[] _pauseListener;
         private readonly IGameResume[] _resumeListeners;
         private readonly IGameFinish[] _finishListeners;
-
-        //private readonly ITick[] _updates;
-       // private readonly IFixedTick[] _fixedUpdates;
-       
+        
         public GameState GameState { get; private set; }
         
         public GameCycleSystem(IGameListener[] listeners) 
@@ -22,8 +19,6 @@ namespace GameCycle
             _pauseListener = listeners.OfType<IGamePause>().ToArray();
             _resumeListeners = listeners.OfType<IGameResume>().ToArray();
             _finishListeners = listeners.OfType<IGameFinish>().ToArray();
-            //_updates = listeners.OfType<ITick>().ToArray();
-            //_fixedUpdates = listeners.OfType<IFixedTick>().ToArray();
         }
         
         public void OnStartEvent()
@@ -60,20 +55,6 @@ namespace GameCycle
             for (int i = 0; i < _resumeListeners.Length; i++)
                 _resumeListeners[i].OnResume();
         }
-        
-        // public void Tick()
-        // {
-        //     if (IsPaused()) return;
-        //     for (int i = 0; i < _updates.Length; i++)
-        //         _updates[i].Tick(Time.deltaTime);
-        // }
-        //
-        // public void FixedTick()
-        // {
-        //     if (IsPaused()) return;
-        //     for (int i = 0; i < _fixedUpdates.Length; i++)
-        //         _fixedUpdates[i].FixedTick(Time.fixedDeltaTime);
-        // }
         
         public void OnFinish()
         {

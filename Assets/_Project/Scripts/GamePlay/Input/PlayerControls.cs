@@ -64,6 +64,42 @@ namespace GamePlay
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Keybord_1"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0e8b471-5a44-4278-8fcc-cffadef30eda"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Keybord_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""41cace0b-66dc-44b2-b05c-c013201de316"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Keybord_3"",
+                    ""type"": ""Button"",
+                    ""id"": ""01a60894-b79a-4055-83c4-0db5494a72f1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Keybord_4"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a24c1b6-1e30-4709-a9e5-c8e95e9274dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -154,6 +190,50 @@ namespace GamePlay
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78cc3140-c83b-4f51-9400-a589e1025418"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Keybord_1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93be2ad1-38c6-4e94-a1b2-cc092b04a004"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Keybord_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd61fa9e-f2e2-4f9a-b478-d7a120df98ea"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Keybord_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b62c1df-a6a3-48e9-b732-020c0f421317"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Keybord_4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +246,10 @@ namespace GamePlay
             m_Character_Movement = m_Character.FindAction("Movement", throwIfNotFound: true);
             m_Character_Aim = m_Character.FindAction("Aim", throwIfNotFound: true);
             m_Character_Run = m_Character.FindAction("Run", throwIfNotFound: true);
+            m_Character_Keybord_1 = m_Character.FindAction("Keybord_1", throwIfNotFound: true);
+            m_Character_Keybord_2 = m_Character.FindAction("Keybord_2", throwIfNotFound: true);
+            m_Character_Keybord_3 = m_Character.FindAction("Keybord_3", throwIfNotFound: true);
+            m_Character_Keybord_4 = m_Character.FindAction("Keybord_4", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -231,6 +315,10 @@ namespace GamePlay
         private readonly InputAction m_Character_Movement;
         private readonly InputAction m_Character_Aim;
         private readonly InputAction m_Character_Run;
+        private readonly InputAction m_Character_Keybord_1;
+        private readonly InputAction m_Character_Keybord_2;
+        private readonly InputAction m_Character_Keybord_3;
+        private readonly InputAction m_Character_Keybord_4;
         public struct CharacterActions
         {
             private @PlayerControls m_Wrapper;
@@ -239,6 +327,10 @@ namespace GamePlay
             public InputAction @Movement => m_Wrapper.m_Character_Movement;
             public InputAction @Aim => m_Wrapper.m_Character_Aim;
             public InputAction @Run => m_Wrapper.m_Character_Run;
+            public InputAction @Keybord_1 => m_Wrapper.m_Character_Keybord_1;
+            public InputAction @Keybord_2 => m_Wrapper.m_Character_Keybord_2;
+            public InputAction @Keybord_3 => m_Wrapper.m_Character_Keybord_3;
+            public InputAction @Keybord_4 => m_Wrapper.m_Character_Keybord_4;
             public InputActionMap Get() { return m_Wrapper.m_Character; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -260,6 +352,18 @@ namespace GamePlay
                 @Run.started += instance.OnRun;
                 @Run.performed += instance.OnRun;
                 @Run.canceled += instance.OnRun;
+                @Keybord_1.started += instance.OnKeybord_1;
+                @Keybord_1.performed += instance.OnKeybord_1;
+                @Keybord_1.canceled += instance.OnKeybord_1;
+                @Keybord_2.started += instance.OnKeybord_2;
+                @Keybord_2.performed += instance.OnKeybord_2;
+                @Keybord_2.canceled += instance.OnKeybord_2;
+                @Keybord_3.started += instance.OnKeybord_3;
+                @Keybord_3.performed += instance.OnKeybord_3;
+                @Keybord_3.canceled += instance.OnKeybord_3;
+                @Keybord_4.started += instance.OnKeybord_4;
+                @Keybord_4.performed += instance.OnKeybord_4;
+                @Keybord_4.canceled += instance.OnKeybord_4;
             }
 
             private void UnregisterCallbacks(ICharacterActions instance)
@@ -276,6 +380,18 @@ namespace GamePlay
                 @Run.started -= instance.OnRun;
                 @Run.performed -= instance.OnRun;
                 @Run.canceled -= instance.OnRun;
+                @Keybord_1.started -= instance.OnKeybord_1;
+                @Keybord_1.performed -= instance.OnKeybord_1;
+                @Keybord_1.canceled -= instance.OnKeybord_1;
+                @Keybord_2.started -= instance.OnKeybord_2;
+                @Keybord_2.performed -= instance.OnKeybord_2;
+                @Keybord_2.canceled -= instance.OnKeybord_2;
+                @Keybord_3.started -= instance.OnKeybord_3;
+                @Keybord_3.performed -= instance.OnKeybord_3;
+                @Keybord_3.canceled -= instance.OnKeybord_3;
+                @Keybord_4.started -= instance.OnKeybord_4;
+                @Keybord_4.performed -= instance.OnKeybord_4;
+                @Keybord_4.canceled -= instance.OnKeybord_4;
             }
 
             public void RemoveCallbacks(ICharacterActions instance)
@@ -299,6 +415,10 @@ namespace GamePlay
             void OnMovement(InputAction.CallbackContext context);
             void OnAim(InputAction.CallbackContext context);
             void OnRun(InputAction.CallbackContext context);
+            void OnKeybord_1(InputAction.CallbackContext context);
+            void OnKeybord_2(InputAction.CallbackContext context);
+            void OnKeybord_3(InputAction.CallbackContext context);
+            void OnKeybord_4(InputAction.CallbackContext context);
         }
     }
 }

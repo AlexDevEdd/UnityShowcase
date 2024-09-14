@@ -63,12 +63,43 @@ MonoBehaviour:
     - id: 13
       name: Animator
       type: Animator
-    - id: 14
-      name: FireEvent
-      type: EventAction
     - id: 15
       name: IsRunning
       type: ReactiveBool
     - id: 16
       name: RunSpeed
       type: ReactiveFloat
+    - id: 18
+      name: CurrentWeapon
+      type: ReactiveVariable<IEntity>
+    - id: 25
+      name: WeaponHolder
+      type: Transform
+  - name: Weapon
+    indexes:
+    - id: 17
+      name: WeaponType
+      type: WeaponType
+    - id: 19
+      name: AmmoCapacity
+      type: ReactiveInt
+    - id: 20
+      name: RechargeDelay
+      type: ReactiveFloat
+    - id: 21
+      name: RemainingAmmo
+      type: ReactiveInt
+    - id: 22
+      name: ProjectileType
+      type: ProjectileType
+    - id: 23
+      name: Damage
+      type: ReactiveFloat
+  - name: Actions
+    indexes:
+    - id: 14
+      name: FireEvent
+      type: EventAction
+    - id: 24
+      name: WeaponIndex
+      type: EventAction<int>

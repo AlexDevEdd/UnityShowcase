@@ -28,9 +28,10 @@ namespace Atomic.Entities
         public const int LookingDirection = 11; // ReactiveVector2
         public const int AimTransform = 12; // Transform
         public const int Animator = 13; // Animator
-        public const int FireEvent = 14; // EventAction
         public const int IsRunning = 15; // ReactiveBool
         public const int RunSpeed = 16; // ReactiveFloat
+        public const int CurrentWeapon = 18; // ReactiveVariable<IEntity>
+        public const int WeaponHolder = 25; // Transform
 
 
         ///Extensions
@@ -269,24 +270,6 @@ namespace Atomic.Entities
         public static void SetAnimator(this IEntity obj, Animator value) => obj.SetValue(Animator, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static EventAction GetFireEvent(this IEntity obj) => obj.GetValue<EventAction>(FireEvent);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetFireEvent(this IEntity obj, out EventAction value) => obj.TryGetValue(FireEvent, out value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddFireEvent(this IEntity obj, EventAction value) => obj.AddValue(FireEvent, value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool HasFireEvent(this IEntity obj) => obj.HasValue(FireEvent);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool DelFireEvent(this IEntity obj) => obj.DelValue(FireEvent);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetFireEvent(this IEntity obj, EventAction value) => obj.SetValue(FireEvent, value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ReactiveBool GetIsRunning(this IEntity obj) => obj.GetValue<ReactiveBool>(IsRunning);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -321,5 +304,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetRunSpeed(this IEntity obj, ReactiveFloat value) => obj.SetValue(RunSpeed, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<IEntity> GetCurrentWeapon(this IEntity obj) => obj.GetValue<ReactiveVariable<IEntity>>(CurrentWeapon);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCurrentWeapon(this IEntity obj, out ReactiveVariable<IEntity> value) => obj.TryGetValue(CurrentWeapon, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCurrentWeapon(this IEntity obj, ReactiveVariable<IEntity> value) => obj.AddValue(CurrentWeapon, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCurrentWeapon(this IEntity obj) => obj.HasValue(CurrentWeapon);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCurrentWeapon(this IEntity obj) => obj.DelValue(CurrentWeapon);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCurrentWeapon(this IEntity obj, ReactiveVariable<IEntity> value) => obj.SetValue(CurrentWeapon, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Transform GetWeaponHolder(this IEntity obj) => obj.GetValue<Transform>(WeaponHolder);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetWeaponHolder(this IEntity obj, out Transform value) => obj.TryGetValue(WeaponHolder, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddWeaponHolder(this IEntity obj, Transform value) => obj.AddValue(WeaponHolder, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasWeaponHolder(this IEntity obj) => obj.HasValue(WeaponHolder);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelWeaponHolder(this IEntity obj) => obj.DelValue(WeaponHolder);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetWeaponHolder(this IEntity obj, Transform value) => obj.SetValue(WeaponHolder, value);
     }
 }

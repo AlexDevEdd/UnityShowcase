@@ -2,6 +2,7 @@ using Atomic.Elements;
 using Atomic.Entities;
 using Atomic.Extensions;
 using UnityEngine;
+using Utils;
 
 namespace GamePlay
 {
@@ -27,9 +28,15 @@ namespace GamePlay
         
         [SerializeField]
         private Transform _aimTransform;
+        
+        // [SerializeField]
+        // private Transform _weaponHolder;
 
         [SerializeField] 
         private Animator _animator;
+        
+        [SerializeField] 
+        private SceneEntity _defaultWeapon;
         
         
         public override void Install(IEntity entity)
@@ -60,6 +67,9 @@ namespace GamePlay
 
             entity.AddFireEvent(new EventAction());
             entity.AddBehaviour<CharacterAnimationFireBehaviour>();
+            
+            entity.AddCurrentWeapon(new ReactiveVariable<IEntity>(_defaultWeapon));
+            entity.AddWeaponIndex(new EventAction<int>());
         }
     }
 }

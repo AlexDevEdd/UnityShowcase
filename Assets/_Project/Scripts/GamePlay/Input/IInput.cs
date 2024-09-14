@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GamePlay
 {
-    public interface IInput : IMoveInput, IAimInput, IFireInput, IRunInput { }
+    public interface IInput : IMoveInput, IAimInput, IFireInput, IRunInput, ISwitchWeaponInput { }
     
     public interface IMoveInput
     {
@@ -23,6 +23,11 @@ namespace GamePlay
     public interface IRunInput
     { 
         public event Action<bool> OnRunEvent;
+    }
+    
+    public interface ISwitchWeaponInput
+    { 
+        public event Action<int> OnWeaponChanged;
     }
     
 }

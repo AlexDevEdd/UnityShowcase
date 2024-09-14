@@ -27,6 +27,11 @@ namespace GamePlay
             Container.BindInterfacesAndSelfTo<CharacterFireInputHandler>()
                 .AsSingle()
                 .NonLazy();
+            
+            
+            Container.BindInterfacesAndSelfTo<WeaponSwitchInputHandler>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

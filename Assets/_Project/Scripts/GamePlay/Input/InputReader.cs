@@ -13,6 +13,8 @@ namespace GamePlay
         public event Action<bool> OnRunEvent;
         public event Action<Vector2> OnAimEvent;
         public event Action OnFireEvent;
+        
+        public event Action<int> OnWeaponChanged;
 
         private readonly PlayerControls _input = new ();
 
@@ -82,6 +84,26 @@ namespace GamePlay
                     OnRunEvent?.Invoke(false);
                     break;
             }
+        }
+
+        public void OnKeybord_1(InputAction.CallbackContext context)
+        {
+            OnWeaponChanged?.Invoke(1);
+        }
+
+        public void OnKeybord_2(InputAction.CallbackContext context)
+        {
+            OnWeaponChanged?.Invoke(2);
+        }
+
+        public void OnKeybord_3(InputAction.CallbackContext context)
+        {
+            OnWeaponChanged?.Invoke(3);
+        }
+
+        public void OnKeybord_4(InputAction.CallbackContext context)
+        {
+            OnWeaponChanged?.Invoke(4);
         }
     }
 }

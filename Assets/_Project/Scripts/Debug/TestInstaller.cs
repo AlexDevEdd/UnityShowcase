@@ -1,4 +1,5 @@
-﻿using GamePlay;
+﻿using Atomic.Entities;
+using GamePlay;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,9 @@ namespace Debug
     {
         [SerializeField] 
         private SceneEntityWorldCycle _sceneEntityWorldCycle;
+        
+        [SerializeField] 
+        private SceneEntityWorld _sceneEntityWorld;
 
         public override void InstallBindings()
         {
@@ -19,11 +23,20 @@ namespace Debug
             // Container.BindInterfacesAndSelfTo<MoveController>()
             //     .AsSingle()
             //     .NonLazy();
+            //
+            Container.BindInterfacesAndSelfTo<WeaponSystem>()
+                .AsSingle()
+                .NonLazy();
 
             InputInstaller.Install(Container);
             
             Container.BindInterfacesAndSelfTo<SceneEntityWorldCycle>()
                 .FromInstance(_sceneEntityWorldCycle)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<SceneEntityWorld>()
+                .FromInstance(_sceneEntityWorld)
                 .AsSingle()
                 .NonLazy();
         }

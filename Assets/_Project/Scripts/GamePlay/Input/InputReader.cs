@@ -13,6 +13,7 @@ namespace GamePlay
         public event Action<bool> OnRunEvent;
         public event Action<Vector2> OnAimEvent;
         public event Action OnFireEvent;
+        public event Action OnReloadEvent;
         
         public event Action<int> OnWeaponChanged;
 
@@ -104,6 +105,11 @@ namespace GamePlay
         public void OnKeybord_4(InputAction.CallbackContext context)
         {
             OnWeaponChanged?.Invoke(4);
+        }
+
+        public void OnReload(InputAction.CallbackContext context)
+        {
+            OnReloadEvent?.Invoke();
         }
     }
 }

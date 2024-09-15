@@ -18,6 +18,7 @@ namespace GamePlay
         public void OnUpdate(IEntity entity, float deltaTime)
         {
             _aim.position = _rayHitInfo.Value;
+            //_aim.position = new Vector3(_rayHitInfo.Value.x, _aim.position.y, _rayHitInfo.Value.z);
         }
     }
 }

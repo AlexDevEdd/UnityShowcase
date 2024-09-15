@@ -20,7 +20,7 @@ MonoBehaviour:
   - Atomic.Elements
   - Atomic.Extensions
   - Unity.Mathematics
-  - GamePlay
+  - UnityEngine.Animations.Rigging
   categories:
   - name: Entity
     indexes:
@@ -75,6 +75,12 @@ MonoBehaviour:
     - id: 25
       name: WeaponHolder
       type: Transform
+    - id: 26
+      name: LeftHandIKTarget
+      type: Transform
+    - id: 29
+      name: Rig
+      type: Rig
   - name: Weapon
     indexes:
     - id: 17
@@ -95,11 +101,17 @@ MonoBehaviour:
     - id: 23
       name: Damage
       type: ReactiveFloat
+    - id: 27
+      name: AnimLayerIndex
+      type: int
   - name: Actions
     indexes:
     - id: 14
       name: FireEvent
       type: EventAction
     - id: 24
-      name: WeaponIndex
+      name: SwitchWeaponEvent
       type: EventAction<int>
+    - id: 28
+      name: ReloadWeaponEvent
+      type: EventAction

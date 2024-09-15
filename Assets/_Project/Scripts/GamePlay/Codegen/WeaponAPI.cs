@@ -21,6 +21,7 @@ namespace Atomic.Entities
         public const int RemainingAmmo = 21; // ReactiveInt
         public const int ProjectileType = 22; // ProjectileType
         public const int Damage = 23; // ReactiveFloat
+        public const int AnimLayerIndex = 27; // int
 
 
         ///Extensions
@@ -131,5 +132,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetDamage(this IEntity obj, ReactiveFloat value) => obj.SetValue(Damage, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetAnimLayerIndex(this IEntity obj) => obj.GetValue<int>(AnimLayerIndex);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetAnimLayerIndex(this IEntity obj, out int value) => obj.TryGetValue(AnimLayerIndex, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddAnimLayerIndex(this IEntity obj, int value) => obj.AddValue(AnimLayerIndex, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasAnimLayerIndex(this IEntity obj) => obj.HasValue(AnimLayerIndex);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelAnimLayerIndex(this IEntity obj) => obj.DelValue(AnimLayerIndex);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetAnimLayerIndex(this IEntity obj, int value) => obj.SetValue(AnimLayerIndex, value);
     }
 }

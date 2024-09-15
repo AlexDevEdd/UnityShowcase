@@ -1,5 +1,6 @@
 ﻿using Atomic.Elements;
 using Atomic.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace GamePlay
@@ -39,7 +40,8 @@ namespace GamePlay
                 _direction.y = 0f; 
                 _direction.Normalize();
                 
-                _transform.forward = _direction;
+                Quaternion desiredRotation = Quaternion.LookRotation(_direction);
+                _transform.rotation = Quaternion.Slerp(_transform.rotation, desiredRotation, 8 * deltaTime);
                 _rayHitInfo.Value = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
             }
         }

@@ -2,6 +2,7 @@ using Atomic.Elements;
 using Atomic.Entities;
 using Atomic.Extensions;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using Utils;
 
 namespace GamePlay
@@ -28,12 +29,18 @@ namespace GamePlay
         
         [SerializeField]
         private Transform _aimTransform;
+
+        [SerializeField] 
+        private Transform _currentLeftHandIKTarget;
         
         // [SerializeField]
         // private Transform _weaponHolder;
 
         [SerializeField] 
         private Animator _animator;
+        
+        [SerializeField] 
+        private Rig _rig;
         
         [SerializeField] 
         private SceneEntity _defaultWeapon;
@@ -69,7 +76,14 @@ namespace GamePlay
             entity.AddBehaviour<CharacterAnimationFireBehaviour>();
             
             entity.AddCurrentWeapon(new ReactiveVariable<IEntity>(_defaultWeapon));
-            entity.AddWeaponIndex(new EventAction<int>());
+            entity.AddSwitchWeaponEvent(new EventAction<int>());
+            entity.AddBehaviour<WeaponAnimationLayerBehaviour>();
+
+            entity.AddReloadWeaponEvent(new EventAction());
+            entity.AddBehaviour<WeaponReloadAnimationBehaviour>();
+
+            entity.AddRig(_rig);
+            entity.AddLeftHandIKTarget(_currentLeftHandIKTarget);
         }
     }
 }

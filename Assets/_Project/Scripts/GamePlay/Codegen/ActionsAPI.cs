@@ -16,7 +16,8 @@ namespace Atomic.Entities
     {
         ///Keys
         public const int FireEvent = 14; // EventAction
-        public const int WeaponIndex = 24; // EventAction<int>
+        public const int SwitchWeaponEvent = 24; // EventAction<int>
+        public const int ReloadWeaponEvent = 28; // EventAction
 
 
         ///Extensions
@@ -39,21 +40,39 @@ namespace Atomic.Entities
         public static void SetFireEvent(this IEntity obj, EventAction value) => obj.SetValue(FireEvent, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static EventAction<int> GetWeaponIndex(this IEntity obj) => obj.GetValue<EventAction<int>>(WeaponIndex);
+        public static EventAction<int> GetSwitchWeaponEvent(this IEntity obj) => obj.GetValue<EventAction<int>>(SwitchWeaponEvent);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetWeaponIndex(this IEntity obj, out EventAction<int> value) => obj.TryGetValue(WeaponIndex, out value);
+        public static bool TryGetSwitchWeaponEvent(this IEntity obj, out EventAction<int> value) => obj.TryGetValue(SwitchWeaponEvent, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddWeaponIndex(this IEntity obj, EventAction<int> value) => obj.AddValue(WeaponIndex, value);
+        public static bool AddSwitchWeaponEvent(this IEntity obj, EventAction<int> value) => obj.AddValue(SwitchWeaponEvent, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool HasWeaponIndex(this IEntity obj) => obj.HasValue(WeaponIndex);
+        public static bool HasSwitchWeaponEvent(this IEntity obj) => obj.HasValue(SwitchWeaponEvent);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool DelWeaponIndex(this IEntity obj) => obj.DelValue(WeaponIndex);
+        public static bool DelSwitchWeaponEvent(this IEntity obj) => obj.DelValue(SwitchWeaponEvent);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetWeaponIndex(this IEntity obj, EventAction<int> value) => obj.SetValue(WeaponIndex, value);
+        public static void SetSwitchWeaponEvent(this IEntity obj, EventAction<int> value) => obj.SetValue(SwitchWeaponEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static EventAction GetReloadWeaponEvent(this IEntity obj) => obj.GetValue<EventAction>(ReloadWeaponEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetReloadWeaponEvent(this IEntity obj, out EventAction value) => obj.TryGetValue(ReloadWeaponEvent, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddReloadWeaponEvent(this IEntity obj, EventAction value) => obj.AddValue(ReloadWeaponEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasReloadWeaponEvent(this IEntity obj) => obj.HasValue(ReloadWeaponEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelReloadWeaponEvent(this IEntity obj) => obj.DelValue(ReloadWeaponEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetReloadWeaponEvent(this IEntity obj, EventAction value) => obj.SetValue(ReloadWeaponEvent, value);
     }
 }

@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using Atomic.Elements;
 using Atomic.Extensions;
 using Unity.Mathematics;
-using GamePlay;
+using UnityEngine.Animations.Rigging;
 
 namespace Atomic.Entities
 {
@@ -32,6 +32,8 @@ namespace Atomic.Entities
         public const int RunSpeed = 16; // ReactiveFloat
         public const int CurrentWeapon = 18; // ReactiveVariable<IEntity>
         public const int WeaponHolder = 25; // Transform
+        public const int LeftHandIKTarget = 26; // Transform
+        public const int Rig = 29; // Rig
 
 
         ///Extensions
@@ -340,5 +342,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetWeaponHolder(this IEntity obj, Transform value) => obj.SetValue(WeaponHolder, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Transform GetLeftHandIKTarget(this IEntity obj) => obj.GetValue<Transform>(LeftHandIKTarget);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetLeftHandIKTarget(this IEntity obj, out Transform value) => obj.TryGetValue(LeftHandIKTarget, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddLeftHandIKTarget(this IEntity obj, Transform value) => obj.AddValue(LeftHandIKTarget, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasLeftHandIKTarget(this IEntity obj) => obj.HasValue(LeftHandIKTarget);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelLeftHandIKTarget(this IEntity obj) => obj.DelValue(LeftHandIKTarget);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetLeftHandIKTarget(this IEntity obj, Transform value) => obj.SetValue(LeftHandIKTarget, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Rig GetRig(this IEntity obj) => obj.GetValue<Rig>(Rig);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetRig(this IEntity obj, out Rig value) => obj.TryGetValue(Rig, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddRig(this IEntity obj, Rig value) => obj.AddValue(Rig, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasRig(this IEntity obj) => obj.HasValue(Rig);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelRig(this IEntity obj) => obj.DelValue(Rig);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetRig(this IEntity obj, Rig value) => obj.SetValue(Rig, value);
     }
 }

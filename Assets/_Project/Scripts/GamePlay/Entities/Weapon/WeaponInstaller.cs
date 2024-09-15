@@ -10,6 +10,13 @@ namespace GamePlay
         [SerializeField] 
         private WeaponData _weaponData;
         
+        [SerializeField] 
+        private Transform _leftHandIKTarget;
+        
+        [SerializeField] 
+        private int _animLayerIndex;
+
+        
         public override void Install(IEntity entity)
         {
             entity.AddTag(TagAPI.Weapon);
@@ -20,6 +27,9 @@ namespace GamePlay
             entity.AddAmmoCapacity(new ReactiveInt(_weaponData.AmmoCapacity));
             entity.AddRemainingAmmo(new ReactiveInt(_weaponData.RemainingAmmo));
             entity.AddRechargeDelay(new ReactiveFloat(_weaponData.RechargeDelay));
+
+            entity.AddLeftHandIKTarget(_leftHandIKTarget);
+            entity.AddAnimLayerIndex(_animLayerIndex);
         }
     }
 

@@ -100,6 +100,15 @@ namespace GamePlay
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""609d4f14-31bf-410b-a06f-49b8ff3ed532"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -234,6 +243,17 @@ namespace GamePlay
                     ""action"": ""Keybord_4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ffab3e7-6664-4be1-a23f-6af8000c203e"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -250,6 +270,7 @@ namespace GamePlay
             m_Character_Keybord_2 = m_Character.FindAction("Keybord_2", throwIfNotFound: true);
             m_Character_Keybord_3 = m_Character.FindAction("Keybord_3", throwIfNotFound: true);
             m_Character_Keybord_4 = m_Character.FindAction("Keybord_4", throwIfNotFound: true);
+            m_Character_Reload = m_Character.FindAction("Reload", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -319,6 +340,7 @@ namespace GamePlay
         private readonly InputAction m_Character_Keybord_2;
         private readonly InputAction m_Character_Keybord_3;
         private readonly InputAction m_Character_Keybord_4;
+        private readonly InputAction m_Character_Reload;
         public struct CharacterActions
         {
             private @PlayerControls m_Wrapper;
@@ -331,6 +353,7 @@ namespace GamePlay
             public InputAction @Keybord_2 => m_Wrapper.m_Character_Keybord_2;
             public InputAction @Keybord_3 => m_Wrapper.m_Character_Keybord_3;
             public InputAction @Keybord_4 => m_Wrapper.m_Character_Keybord_4;
+            public InputAction @Reload => m_Wrapper.m_Character_Reload;
             public InputActionMap Get() { return m_Wrapper.m_Character; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -364,6 +387,9 @@ namespace GamePlay
                 @Keybord_4.started += instance.OnKeybord_4;
                 @Keybord_4.performed += instance.OnKeybord_4;
                 @Keybord_4.canceled += instance.OnKeybord_4;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
             }
 
             private void UnregisterCallbacks(ICharacterActions instance)
@@ -392,6 +418,9 @@ namespace GamePlay
                 @Keybord_4.started -= instance.OnKeybord_4;
                 @Keybord_4.performed -= instance.OnKeybord_4;
                 @Keybord_4.canceled -= instance.OnKeybord_4;
+                @Reload.started -= instance.OnReload;
+                @Reload.performed -= instance.OnReload;
+                @Reload.canceled -= instance.OnReload;
             }
 
             public void RemoveCallbacks(ICharacterActions instance)
@@ -419,6 +448,7 @@ namespace GamePlay
             void OnKeybord_2(InputAction.CallbackContext context);
             void OnKeybord_3(InputAction.CallbackContext context);
             void OnKeybord_4(InputAction.CallbackContext context);
+            void OnReload(InputAction.CallbackContext context);
         }
     }
 }

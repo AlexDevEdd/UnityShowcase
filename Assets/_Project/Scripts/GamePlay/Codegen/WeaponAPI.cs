@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using Atomic.Elements;
 using Atomic.Extensions;
 using Unity.Mathematics;
+using UnityEngine.Animations.Rigging;
 using GamePlay;
 
 namespace Atomic.Entities
@@ -22,6 +23,10 @@ namespace Atomic.Entities
         public const int ProjectileType = 22; // ProjectileType
         public const int Damage = 23; // ReactiveFloat
         public const int AnimLayerIndex = 27; // int
+        public const int FirePoint = 32; // Transform
+        public const int LifeTimer = 31; // Countdown
+        public const int LifeTime = 33; // float
+        public const int FireEffect = 35; // ParticleSystem
 
 
         ///Extensions
@@ -150,5 +155,77 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetAnimLayerIndex(this IEntity obj, int value) => obj.SetValue(AnimLayerIndex, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Transform GetFirePoint(this IEntity obj) => obj.GetValue<Transform>(FirePoint);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetFirePoint(this IEntity obj, out Transform value) => obj.TryGetValue(FirePoint, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddFirePoint(this IEntity obj, Transform value) => obj.AddValue(FirePoint, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasFirePoint(this IEntity obj) => obj.HasValue(FirePoint);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelFirePoint(this IEntity obj) => obj.DelValue(FirePoint);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetFirePoint(this IEntity obj, Transform value) => obj.SetValue(FirePoint, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Countdown GetLifeTimer(this IEntity obj) => obj.GetValue<Countdown>(LifeTimer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetLifeTimer(this IEntity obj, out Countdown value) => obj.TryGetValue(LifeTimer, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddLifeTimer(this IEntity obj, Countdown value) => obj.AddValue(LifeTimer, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasLifeTimer(this IEntity obj) => obj.HasValue(LifeTimer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelLifeTimer(this IEntity obj) => obj.DelValue(LifeTimer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetLifeTimer(this IEntity obj, Countdown value) => obj.SetValue(LifeTimer, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float GetLifeTime(this IEntity obj) => obj.GetValue<float>(LifeTime);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetLifeTime(this IEntity obj, out float value) => obj.TryGetValue(LifeTime, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddLifeTime(this IEntity obj, float value) => obj.AddValue(LifeTime, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasLifeTime(this IEntity obj) => obj.HasValue(LifeTime);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelLifeTime(this IEntity obj) => obj.DelValue(LifeTime);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetLifeTime(this IEntity obj, float value) => obj.SetValue(LifeTime, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ParticleSystem GetFireEffect(this IEntity obj) => obj.GetValue<ParticleSystem>(FireEffect);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetFireEffect(this IEntity obj, out ParticleSystem value) => obj.TryGetValue(FireEffect, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddFireEffect(this IEntity obj, ParticleSystem value) => obj.AddValue(FireEffect, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasFireEffect(this IEntity obj) => obj.HasValue(FireEffect);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelFireEffect(this IEntity obj) => obj.DelValue(FireEffect);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetFireEffect(this IEntity obj, ParticleSystem value) => obj.SetValue(FireEffect, value);
     }
 }

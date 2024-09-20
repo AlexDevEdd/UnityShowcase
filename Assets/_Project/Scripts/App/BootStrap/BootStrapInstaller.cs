@@ -1,4 +1,5 @@
 using GameCycle;
+using GamePlay;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +13,9 @@ namespace App
         [SerializeField] 
         private LoadingWindow _loadingWindow;
         
+        [SerializeField] 
+        private Transform _poolsContainer;
+        
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<GameCycleSystem>()
@@ -19,6 +23,7 @@ namespace App
             
             BindAppStepConfiguration();
             BindBootStrapSystem();
+            BindBulletFactory();
             
             AppStepInstaller.Install(Container);
         }
@@ -36,6 +41,14 @@ namespace App
             Container.Bind<AppStepConfiguration>()
                 .FromInstance(_appStepConfiguration)
                 .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindBulletFactory()
+        {
+            Container.BindInterfacesAndSelfTo<BulletFactory>()
+                .AsSingle()
+                .WithArguments(_poolsContainer)
                 .NonLazy();
         }
     }

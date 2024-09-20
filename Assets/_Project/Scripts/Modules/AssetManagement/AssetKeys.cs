@@ -7,6 +7,10 @@ namespace AssetManagement
         public const string GAME = "Game";
         public const string SETTINGS = "Settings";
         public const string CELL_VIEW = "CellView";
+        public const string SHOTGUN_BULLET = "ShotgunBullet";
+        public const string PISTOL_BULLET = "PistolBullet";
+        public const string PLAZMA_BULLET = "PlazmaBullet";
+        public const string SNIPER_BULLET = "SniperBullet";
         
     }
 }

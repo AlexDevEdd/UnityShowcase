@@ -1,8 +1,10 @@
-﻿using Zenject;
+﻿using JetBrains.Annotations;
+using Zenject;
 
 namespace GamePlay
 {
-    public class CursorInstaller : Installer<CursorInstaller>
+    [UsedImplicitly]
+    public sealed class CursorInstaller : Installer<CursorInstaller>
     {
         public override void InstallBindings()
         {
@@ -11,7 +13,7 @@ namespace GamePlay
 
         private void BindCursorSystem()
         {
-            Container.Bind<CursorSystem>()
+            Container.BindInterfacesAndSelfTo<CursorSystem>()
                 .AsSingle()
                 .NonLazy();
         }

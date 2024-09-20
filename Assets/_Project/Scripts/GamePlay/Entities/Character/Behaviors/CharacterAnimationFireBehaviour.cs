@@ -15,7 +15,7 @@ namespace GamePlay
         public void Init(IEntity entity)
         {
             _animator = entity.GetAnimator();
-            _fireAction = entity.GetFireEvent();
+            _fireAction = entity.GetFireAction();
         }
         
         public void Enable(IEntity entity)

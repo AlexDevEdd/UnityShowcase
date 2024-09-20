@@ -12,7 +12,7 @@ namespace App
                 .AsSingle()
                 .NonLazy();
             
-            Container.BindInterfacesAndSelfTo<Test_SecondAppStep>()
+            Container.BindInterfacesAndSelfTo<CreateBulletPoolsAppStep>()
                 .AsSingle()
                 .NonLazy();
             

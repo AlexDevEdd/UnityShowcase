@@ -15,13 +15,11 @@ namespace GamePlay
         public void DisableCursor()
         {
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
         }
         
         public void EnableCursor()
         {
             Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }

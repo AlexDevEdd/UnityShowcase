@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Debug
 {
-    public sealed class TestInstaller : MonoInstaller
+    public sealed class SceneInstaller : MonoInstaller
     {
         [SerializeField] 
         private SceneEntityWorldCycle _sceneEntityWorldCycle;
@@ -15,20 +15,8 @@ namespace Debug
 
         public override void InstallBindings()
         {
-            // Container.BindInterfacesAndSelfTo<Character>()
-            //     .FromInstance(_character)
-            //     .AsSingle()
-            //     .NonLazy();
-            //
-            // Container.BindInterfacesAndSelfTo<MoveController>()
-            //     .AsSingle()
-            //     .NonLazy();
-            //
-            Container.BindInterfacesAndSelfTo<WeaponSystem>()
-                .AsSingle()
-                .NonLazy();
-
             InputInstaller.Install(Container);
+            WeaponSystemInstaller.Install(Container);
             
             Container.BindInterfacesAndSelfTo<SceneEntityWorldCycle>()
                 .FromInstance(_sceneEntityWorldCycle)

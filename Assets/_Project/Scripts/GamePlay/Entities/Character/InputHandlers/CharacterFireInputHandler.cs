@@ -12,7 +12,7 @@ namespace GamePlay
         private readonly IEntity _entity;
         private readonly IFireInput _fireInput;
         
-        private EventAction _shootEvent;
+        private EventAction _fireAction;
         
         public CharacterFireInputHandler(IEntity entity, IFireInput fireInput)
         {
@@ -22,13 +22,13 @@ namespace GamePlay
         
         public void OnStart()
         {
-            _shootEvent = _entity.GetFireEvent();
+            _fireAction = _entity.GetFireAction();
             _fireInput.OnFireEvent += OnFireEvent;
         }
 
         private void OnFireEvent()
         {
-            _shootEvent?.Invoke();
+            _fireAction?.Invoke();
         }
 
         public void OnFinish()

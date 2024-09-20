@@ -33,9 +33,6 @@ namespace GamePlay
         [SerializeField] 
         private Transform _currentLeftHandIKTarget;
         
-        // [SerializeField]
-        // private Transform _weaponHolder;
-
         [SerializeField] 
         private Animator _animator;
         
@@ -50,7 +47,7 @@ namespace GamePlay
         {
             entity.AddCamera(Camera.main);
             entity.AddLayerMask(_aimLayerMask);
-            entity.AddRayHitInfo(new ReactiveVector3());
+            entity.AddRayHitInfo(new ReactiveVariable<RaycastHit>());
             entity.AddCharacterController(_characterController);
             
             entity.AddAimTransform(_aimTransform);
@@ -72,7 +69,7 @@ namespace GamePlay
             entity.AddAnimator(_animator);
             entity.AddBehaviour<CharacterAnimationMovementBehaviour>();
 
-            entity.AddFireEvent(new EventAction());
+            entity.AddFireAction(new EventAction());
             entity.AddBehaviour<CharacterAnimationFireBehaviour>();
             
             entity.AddCurrentWeapon(new ReactiveVariable<IEntity>(_defaultWeapon));

@@ -9,6 +9,7 @@ using Atomic.Elements;
 using Atomic.Extensions;
 using Unity.Mathematics;
 using UnityEngine.Animations.Rigging;
+using GamePlay;
 
 namespace Atomic.Entities
 {
@@ -24,7 +25,7 @@ namespace Atomic.Entities
         public const int CharacterController = 7; // CharacterController
         public const int LayerMask = 8; // LayerMask
         public const int Camera = 9; // Camera
-        public const int RayHitInfo = 10; // ReactiveVector3
+        public const int RayHitInfo = 10; // ReactiveVariable<RaycastHit>
         public const int LookingDirection = 11; // ReactiveVector2
         public const int AimTransform = 12; // Transform
         public const int Animator = 13; // Animator
@@ -34,6 +35,9 @@ namespace Atomic.Entities
         public const int WeaponHolder = 25; // Transform
         public const int LeftHandIKTarget = 26; // Transform
         public const int Rig = 29; // Rig
+        public const int Rigidbody = 30; // Rigidbody
+        public const int CollisionObserver = 36; // CollisionObserver
+        public const int SceneEntity = 37; // SceneEntity
 
 
         ///Extensions
@@ -200,13 +204,13 @@ namespace Atomic.Entities
         public static void SetCamera(this IEntity obj, Camera value) => obj.SetValue(Camera, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ReactiveVector3 GetRayHitInfo(this IEntity obj) => obj.GetValue<ReactiveVector3>(RayHitInfo);
+        public static ReactiveVariable<RaycastHit> GetRayHitInfo(this IEntity obj) => obj.GetValue<ReactiveVariable<RaycastHit>>(RayHitInfo);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetRayHitInfo(this IEntity obj, out ReactiveVector3 value) => obj.TryGetValue(RayHitInfo, out value);
+        public static bool TryGetRayHitInfo(this IEntity obj, out ReactiveVariable<RaycastHit> value) => obj.TryGetValue(RayHitInfo, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddRayHitInfo(this IEntity obj, ReactiveVector3 value) => obj.AddValue(RayHitInfo, value);
+        public static bool AddRayHitInfo(this IEntity obj, ReactiveVariable<RaycastHit> value) => obj.AddValue(RayHitInfo, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasRayHitInfo(this IEntity obj) => obj.HasValue(RayHitInfo);
@@ -215,7 +219,7 @@ namespace Atomic.Entities
         public static bool DelRayHitInfo(this IEntity obj) => obj.DelValue(RayHitInfo);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetRayHitInfo(this IEntity obj, ReactiveVector3 value) => obj.SetValue(RayHitInfo, value);
+        public static void SetRayHitInfo(this IEntity obj, ReactiveVariable<RaycastHit> value) => obj.SetValue(RayHitInfo, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ReactiveVector2 GetLookingDirection(this IEntity obj) => obj.GetValue<ReactiveVector2>(LookingDirection);
@@ -378,5 +382,59 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetRig(this IEntity obj, Rig value) => obj.SetValue(Rig, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Rigidbody GetRigidbody(this IEntity obj) => obj.GetValue<Rigidbody>(Rigidbody);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetRigidbody(this IEntity obj, out Rigidbody value) => obj.TryGetValue(Rigidbody, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddRigidbody(this IEntity obj, Rigidbody value) => obj.AddValue(Rigidbody, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasRigidbody(this IEntity obj) => obj.HasValue(Rigidbody);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelRigidbody(this IEntity obj) => obj.DelValue(Rigidbody);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetRigidbody(this IEntity obj, Rigidbody value) => obj.SetValue(Rigidbody, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static CollisionObserver GetCollisionObserver(this IEntity obj) => obj.GetValue<CollisionObserver>(CollisionObserver);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCollisionObserver(this IEntity obj, out CollisionObserver value) => obj.TryGetValue(CollisionObserver, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCollisionObserver(this IEntity obj, CollisionObserver value) => obj.AddValue(CollisionObserver, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCollisionObserver(this IEntity obj) => obj.HasValue(CollisionObserver);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCollisionObserver(this IEntity obj) => obj.DelValue(CollisionObserver);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCollisionObserver(this IEntity obj, CollisionObserver value) => obj.SetValue(CollisionObserver, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static SceneEntity GetSceneEntity(this IEntity obj) => obj.GetValue<SceneEntity>(SceneEntity);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetSceneEntity(this IEntity obj, out SceneEntity value) => obj.TryGetValue(SceneEntity, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddSceneEntity(this IEntity obj, SceneEntity value) => obj.AddValue(SceneEntity, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasSceneEntity(this IEntity obj) => obj.HasValue(SceneEntity);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelSceneEntity(this IEntity obj) => obj.DelValue(SceneEntity);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetSceneEntity(this IEntity obj, SceneEntity value) => obj.SetValue(SceneEntity, value);
     }
 }

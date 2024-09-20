@@ -11,7 +11,7 @@ namespace GamePlay
         private Camera _camera;
         
         private IVariable<Vector2> _lookingDirection;
-        private IVariable<Vector3> _rayHitInfo; 
+        private IVariable<RaycastHit> _rayHitInfo; 
         
         private Transform _transform;
         private Vector3 _direction;
@@ -42,7 +42,7 @@ namespace GamePlay
                 
                 Quaternion desiredRotation = Quaternion.LookRotation(_direction);
                 _transform.rotation = Quaternion.Slerp(_transform.rotation, desiredRotation, 8 * deltaTime);
-                _rayHitInfo.Value = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
+                _rayHitInfo.Value = hitInfo;
             }
         }
     }

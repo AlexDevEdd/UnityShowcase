@@ -8,14 +8,6 @@ namespace GamePlay
     {
         public override void InstallBindings()
         {
-            // Container.BindInterfacesAndSelfTo<CurrencyBank>()
-            //     .AsSingle()
-            //     .NonLazy();
-            //
-            // Container.BindInterfacesAndSelfTo<AudioSystem>()
-            //     .AsSingle()
-            //     .NonLazy();
-            
             AssetProviderInstaller.Install(Container);
             SceneLoaderInstaller.Install(Container);
             SaveLoadInstaller.Install(Container);

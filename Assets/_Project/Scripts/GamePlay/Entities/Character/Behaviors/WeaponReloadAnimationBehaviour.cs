@@ -20,7 +20,6 @@ namespace GamePlay
         private EventAction _reloadWeaponEvent;
         private Rig _rig;
         
-        private bool _isReloading;
         private CancellationTokenSource _token;
         
         public void Init(IEntity entity)
@@ -37,9 +36,6 @@ namespace GamePlay
 
         private void OnReload()
         {
-            if(_isReloading) return;
-
-            _isReloading = true;
             _animator.SetTrigger(Reload);
             ReloadingProcess().Forget();
         }
@@ -52,7 +48,6 @@ namespace GamePlay
             await UniTask.Delay(TimeSpan.FromSeconds(RELOAD_DELAY), cancellationToken: _token.Token);
             
             _rig.weight = ENABLE_IK_VALUE;
-            _isReloading = false;
         }
 
         public void Disable(IEntity entity)

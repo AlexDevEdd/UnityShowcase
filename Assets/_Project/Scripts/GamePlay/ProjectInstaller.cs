@@ -12,6 +12,10 @@ namespace GamePlay
             SceneLoaderInstaller.Install(Container);
             SaveLoadInstaller.Install(Container);
             CursorInstaller.Install(Container);
+            
+            Container.BindInterfacesAndSelfTo<WeaponIconProvider>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

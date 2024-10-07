@@ -17,9 +17,9 @@ namespace Atomic.Entities
     {
         ///Keys
         public const int WeaponType = 17; // WeaponType
-        public const int AmmoCapacity = 19; // ReactiveInt
+        public const int TotalCapacity = 19; // ReactiveInt
         public const int RechargeDelay = 20; // ReactiveFloat
-        public const int RemainingAmmo = 21; // ReactiveInt
+        public const int CurrentAmmo = 21; // ReactiveInt
         public const int ProjectileType = 22; // ProjectileType
         public const int Damage = 23; // ReactiveFloat
         public const int AnimLayerIndex = 27; // int
@@ -27,6 +27,8 @@ namespace Atomic.Entities
         public const int LifeTimer = 31; // Countdown
         public const int LifeTime = 33; // float
         public const int FireEffect = 35; // ParticleSystem
+        public const int TotalAmmo = 39; // ReactiveInt
+        public const int MagazineCapacity = 40; // ReactiveInt
 
 
         ///Extensions
@@ -49,22 +51,22 @@ namespace Atomic.Entities
         public static void SetWeaponType(this IEntity obj, WeaponType value) => obj.SetValue(WeaponType, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ReactiveInt GetAmmoCapacity(this IEntity obj) => obj.GetValue<ReactiveInt>(AmmoCapacity);
+        public static ReactiveInt GetTotalCapacity(this IEntity obj) => obj.GetValue<ReactiveInt>(TotalCapacity);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetAmmoCapacity(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(AmmoCapacity, out value);
+        public static bool TryGetTotalCapacity(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(TotalCapacity, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddAmmoCapacity(this IEntity obj, ReactiveInt value) => obj.AddValue(AmmoCapacity, value);
+        public static bool AddTotalCapacity(this IEntity obj, ReactiveInt value) => obj.AddValue(TotalCapacity, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool HasAmmoCapacity(this IEntity obj) => obj.HasValue(AmmoCapacity);
+        public static bool HasTotalCapacity(this IEntity obj) => obj.HasValue(TotalCapacity);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool DelAmmoCapacity(this IEntity obj) => obj.DelValue(AmmoCapacity);
+        public static bool DelTotalCapacity(this IEntity obj) => obj.DelValue(TotalCapacity);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetAmmoCapacity(this IEntity obj, ReactiveInt value) => obj.SetValue(AmmoCapacity, value);
+        public static void SetTotalCapacity(this IEntity obj, ReactiveInt value) => obj.SetValue(TotalCapacity, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ReactiveFloat GetRechargeDelay(this IEntity obj) => obj.GetValue<ReactiveFloat>(RechargeDelay);
@@ -85,22 +87,22 @@ namespace Atomic.Entities
         public static void SetRechargeDelay(this IEntity obj, ReactiveFloat value) => obj.SetValue(RechargeDelay, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ReactiveInt GetRemainingAmmo(this IEntity obj) => obj.GetValue<ReactiveInt>(RemainingAmmo);
+        public static ReactiveInt GetCurrentAmmo(this IEntity obj) => obj.GetValue<ReactiveInt>(CurrentAmmo);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetRemainingAmmo(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(RemainingAmmo, out value);
+        public static bool TryGetCurrentAmmo(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(CurrentAmmo, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddRemainingAmmo(this IEntity obj, ReactiveInt value) => obj.AddValue(RemainingAmmo, value);
+        public static bool AddCurrentAmmo(this IEntity obj, ReactiveInt value) => obj.AddValue(CurrentAmmo, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool HasRemainingAmmo(this IEntity obj) => obj.HasValue(RemainingAmmo);
+        public static bool HasCurrentAmmo(this IEntity obj) => obj.HasValue(CurrentAmmo);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool DelRemainingAmmo(this IEntity obj) => obj.DelValue(RemainingAmmo);
+        public static bool DelCurrentAmmo(this IEntity obj) => obj.DelValue(CurrentAmmo);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetRemainingAmmo(this IEntity obj, ReactiveInt value) => obj.SetValue(RemainingAmmo, value);
+        public static void SetCurrentAmmo(this IEntity obj, ReactiveInt value) => obj.SetValue(CurrentAmmo, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ProjectileType GetProjectileType(this IEntity obj) => obj.GetValue<ProjectileType>(ProjectileType);
@@ -227,5 +229,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetFireEffect(this IEntity obj, ParticleSystem value) => obj.SetValue(FireEffect, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveInt GetTotalAmmo(this IEntity obj) => obj.GetValue<ReactiveInt>(TotalAmmo);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetTotalAmmo(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(TotalAmmo, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddTotalAmmo(this IEntity obj, ReactiveInt value) => obj.AddValue(TotalAmmo, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasTotalAmmo(this IEntity obj) => obj.HasValue(TotalAmmo);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelTotalAmmo(this IEntity obj) => obj.DelValue(TotalAmmo);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetTotalAmmo(this IEntity obj, ReactiveInt value) => obj.SetValue(TotalAmmo, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveInt GetMagazineCapacity(this IEntity obj) => obj.GetValue<ReactiveInt>(MagazineCapacity);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetMagazineCapacity(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(MagazineCapacity, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddMagazineCapacity(this IEntity obj, ReactiveInt value) => obj.AddValue(MagazineCapacity, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasMagazineCapacity(this IEntity obj) => obj.HasValue(MagazineCapacity);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelMagazineCapacity(this IEntity obj) => obj.DelValue(MagazineCapacity);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetMagazineCapacity(this IEntity obj, ReactiveInt value) => obj.SetValue(MagazineCapacity, value);
     }
 }

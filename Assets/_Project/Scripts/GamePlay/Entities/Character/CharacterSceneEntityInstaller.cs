@@ -4,36 +4,21 @@ using Zenject;
 
 namespace GamePlay
 {
-    public class CharacterSceneEntityInstaller: MonoInstaller
+    public sealed class CharacterSceneEntityInstaller: MonoInstaller
     {
         [SerializeField] 
         private SceneEntity _sceneEntity;
         
         public override void InstallBindings()
         {
+            BindCharacter();
+            InputHandlerInstaller.Install(Container);
+        }
+
+        private void BindCharacter()
+        {
             Container.BindInterfacesAndSelfTo<SceneEntity>()
                 .FromInstance(_sceneEntity)
-                .AsSingle()
-                .NonLazy();
-            
-            Container.BindInterfacesAndSelfTo<CharacterMovementInputHandler>()
-                .AsSingle()
-                .NonLazy(); 
-            
-            Container.BindInterfacesAndSelfTo<CharacterAimInputHandler>()
-                .AsSingle()
-                .NonLazy();
-            
-            Container.BindInterfacesAndSelfTo<CharacterFireInputHandler>()
-                .AsSingle()
-                .NonLazy(); 
-            
-            Container.BindInterfacesAndSelfTo<WeaponReloadInputHandler>()
-                .AsSingle()
-                .NonLazy();
-            
-            
-            Container.BindInterfacesAndSelfTo<WeaponSwitchInputHandler>()
                 .AsSingle()
                 .NonLazy();
         }

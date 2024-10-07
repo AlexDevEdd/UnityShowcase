@@ -10,12 +10,18 @@ namespace GamePlay
         {
             BindWeaponSystem();
             BindBulletSystem();
-
+            BindWeaponReloadingSystem();
         }
 
         private void BindWeaponSystem()
         {
             Container.BindInterfacesAndSelfTo<WeaponSystem>()
+                .AsSingle()
+                .NonLazy();
+        }
+        private void BindWeaponReloadingSystem()
+        {
+            Container.BindInterfacesAndSelfTo<WeaponReloadingSystem>()
                 .AsSingle()
                 .NonLazy();
         }

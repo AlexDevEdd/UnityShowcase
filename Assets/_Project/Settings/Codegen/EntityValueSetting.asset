@@ -91,19 +91,25 @@ MonoBehaviour:
     - id: 37
       name: SceneEntity
       type: SceneEntity
+    - id: 38
+      name: HotBarSlotNumber
+      type: ReactiveInt
+    - id: 41
+      name: IsReloading
+      type: ReactiveBool
   - name: Weapon
     indexes:
     - id: 17
       name: WeaponType
       type: WeaponType
     - id: 19
-      name: AmmoCapacity
+      name: TotalCapacity
       type: ReactiveInt
     - id: 20
       name: RechargeDelay
       type: ReactiveFloat
     - id: 21
-      name: RemainingAmmo
+      name: CurrentAmmo
       type: ReactiveInt
     - id: 22
       name: ProjectileType
@@ -126,6 +132,12 @@ MonoBehaviour:
     - id: 35
       name: FireEffect
       type: ParticleSystem
+    - id: 39
+      name: TotalAmmo
+      type: ReactiveInt
+    - id: 40
+      name: MagazineCapacity
+      type: ReactiveInt
   - name: Actions
     indexes:
     - id: 14
@@ -140,3 +152,6 @@ MonoBehaviour:
     - id: 34
       name: DieAction
       type: EventAction<IEntity>
+    - id: 42
+      name: ReloadWeaponRequest
+      type: EventAction

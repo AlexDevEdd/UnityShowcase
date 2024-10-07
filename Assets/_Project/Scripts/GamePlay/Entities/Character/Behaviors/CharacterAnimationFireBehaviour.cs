@@ -7,13 +7,14 @@ namespace GamePlay
     public sealed class CharacterAnimationFireBehaviour : IEntityInit, IEntityEnable, IEntityDisable
     {
         private static readonly int Fire = Animator.StringToHash("Fire");
-       
         
+        private IValue<IEntity> _currentWeapon;
         private Animator _animator;
         private EventAction _fireAction;
         
         public void Init(IEntity entity)
         {
+            _currentWeapon = entity.GetCurrentWeapon();
             _animator = entity.GetAnimator();
             _fireAction = entity.GetFireAction();
         }
@@ -25,6 +26,10 @@ namespace GamePlay
 
         private void OnFire()
         {
+            //TODO: костыль
+            if(_currentWeapon.Value.GetCurrentAmmo().Value == 0) return;
+            // костыль закончился
+            
             _animator.SetTrigger(Fire);
         }
 

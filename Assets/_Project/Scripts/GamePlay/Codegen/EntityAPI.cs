@@ -38,6 +38,8 @@ namespace Atomic.Entities
         public const int Rigidbody = 30; // Rigidbody
         public const int CollisionObserver = 36; // CollisionObserver
         public const int SceneEntity = 37; // SceneEntity
+        public const int HotBarSlotNumber = 38; // ReactiveInt
+        public const int IsReloading = 41; // ReactiveBool
 
 
         ///Extensions
@@ -436,5 +438,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetSceneEntity(this IEntity obj, SceneEntity value) => obj.SetValue(SceneEntity, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveInt GetHotBarSlotNumber(this IEntity obj) => obj.GetValue<ReactiveInt>(HotBarSlotNumber);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetHotBarSlotNumber(this IEntity obj, out ReactiveInt value) => obj.TryGetValue(HotBarSlotNumber, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddHotBarSlotNumber(this IEntity obj, ReactiveInt value) => obj.AddValue(HotBarSlotNumber, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasHotBarSlotNumber(this IEntity obj) => obj.HasValue(HotBarSlotNumber);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelHotBarSlotNumber(this IEntity obj) => obj.DelValue(HotBarSlotNumber);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetHotBarSlotNumber(this IEntity obj, ReactiveInt value) => obj.SetValue(HotBarSlotNumber, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveBool GetIsReloading(this IEntity obj) => obj.GetValue<ReactiveBool>(IsReloading);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetIsReloading(this IEntity obj, out ReactiveBool value) => obj.TryGetValue(IsReloading, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddIsReloading(this IEntity obj, ReactiveBool value) => obj.AddValue(IsReloading, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasIsReloading(this IEntity obj) => obj.HasValue(IsReloading);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelIsReloading(this IEntity obj) => obj.DelValue(IsReloading);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetIsReloading(this IEntity obj, ReactiveBool value) => obj.SetValue(IsReloading, value);
     }
 }

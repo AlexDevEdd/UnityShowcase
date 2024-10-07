@@ -20,6 +20,7 @@ namespace Atomic.Entities
         public const int SwitchWeaponEvent = 24; // EventAction<int>
         public const int ReloadWeaponEvent = 28; // EventAction
         public const int DieAction = 34; // EventAction<IEntity>
+        public const int ReloadWeaponRequest = 42; // EventAction
 
 
         ///Extensions
@@ -94,5 +95,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetDieAction(this IEntity obj, EventAction<IEntity> value) => obj.SetValue(DieAction, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static EventAction GetReloadWeaponRequest(this IEntity obj) => obj.GetValue<EventAction>(ReloadWeaponRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetReloadWeaponRequest(this IEntity obj, out EventAction value) => obj.TryGetValue(ReloadWeaponRequest, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddReloadWeaponRequest(this IEntity obj, EventAction value) => obj.AddValue(ReloadWeaponRequest, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasReloadWeaponRequest(this IEntity obj) => obj.HasValue(ReloadWeaponRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelReloadWeaponRequest(this IEntity obj) => obj.DelValue(ReloadWeaponRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetReloadWeaponRequest(this IEntity obj, EventAction value) => obj.SetValue(ReloadWeaponRequest, value);
     }
 }

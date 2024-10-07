@@ -32,6 +32,9 @@ namespace GamePlay
 
         private void OnFireEvent()
         {
+            var currentAmmo = _currentWeapon.Value.GetCurrentAmmo().Value;
+            if(currentAmmo == 0) return;
+            
             var projectileType = _currentWeapon.Value.GetProjectileType();
             var firePoint = _currentWeapon.Value.GetFirePoint();
             _currentWeapon.Value.GetFireAction().Invoke();

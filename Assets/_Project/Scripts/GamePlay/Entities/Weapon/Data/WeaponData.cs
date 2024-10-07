@@ -13,11 +13,17 @@ namespace GamePlay
         public ProjectileType ProjectileType { get; private set; }
         
         [field:SerializeField]
-        public int AmmoCapacity { get; private set; }
-        
+        public int TotalCapacity { get; private set; }
+
         [field:SerializeField]
-        public int RemainingAmmo { get; private set; }
-        
+        public int TotalAmmo { get; private set; }
+
+        [field:SerializeField]
+        public int MagazineCapacity { get; private set; }
+
+        [field:SerializeField]
+        public int CurrentAmmo { get; private set; }
+
         [field:SerializeField]
         public float RechargeDelay { get; private set; }
         

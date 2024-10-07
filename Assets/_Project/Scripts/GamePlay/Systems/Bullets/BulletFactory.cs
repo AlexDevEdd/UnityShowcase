@@ -48,6 +48,7 @@ namespace GamePlay
             if (_bulletPoolMap.TryGetValue(type, out var bulletPool))
             {
                var bullet = bulletPool.Spawn();
+               bullet.Install();
                var transform = bullet.GetTransform();
                transform.position = firePoint.position;
                transform.rotation = Quaternion.LookRotation(direction);

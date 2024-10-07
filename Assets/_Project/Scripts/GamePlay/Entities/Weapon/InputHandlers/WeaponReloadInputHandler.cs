@@ -11,7 +11,7 @@ namespace GamePlay
         private readonly IEntity _entity;
         private readonly IReloadInput _reloadInput;
         
-        private EventAction _reloadWeaponEvent;
+        private EventAction _reloadWeaponRequest;
         
         public WeaponReloadInputHandler(IEntity entity, IReloadInput reloadInput)
         {
@@ -21,13 +21,13 @@ namespace GamePlay
         
         public void OnStart()
         {
-            _reloadWeaponEvent = _entity.GetReloadWeaponEvent();
+            _reloadWeaponRequest = _entity.GetReloadWeaponRequest();
             _reloadInput.OnReloadEvent += OnReloadEvent;
         }
 
         private void OnReloadEvent()
         {
-            _reloadWeaponEvent?.Invoke();
+            _reloadWeaponRequest?.Invoke();
         }
 
         public void OnFinish()

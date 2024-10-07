@@ -21,16 +21,24 @@ namespace GamePlay
         [SerializeField] 
         private ParticleSystem _fireEffect;
 
-        
+        [SerializeField] 
+        private int _slotNumber;
+
         public override void Install(IEntity entity)
         {
             entity.AddTag(TagAPI.Weapon);
-            
+            entity.AddHotBarSlotNumber(new ReactiveInt(_slotNumber));
+                
             entity.AddWeaponType(_weaponData.WeaponType);
             entity.AddProjectileType(_weaponData.ProjectileType);
             entity.AddDamage(new ReactiveFloat(_weaponData.Damage));
-            entity.AddAmmoCapacity(new ReactiveInt(_weaponData.AmmoCapacity));
-            entity.AddRemainingAmmo(new ReactiveInt(_weaponData.RemainingAmmo));
+            
+            entity.AddTotalCapacity(new ReactiveInt(_weaponData.TotalCapacity));
+            entity.AddTotalAmmo(new ReactiveInt(_weaponData.TotalAmmo));
+            
+            entity.AddMagazineCapacity(new ReactiveInt(_weaponData.MagazineCapacity));
+            entity.AddCurrentAmmo(new ReactiveInt(_weaponData.CurrentAmmo));
+            
             entity.AddRechargeDelay(new ReactiveFloat(_weaponData.RechargeDelay));
 
             entity.AddLeftHandIKTarget(_leftHandIKTarget);
@@ -40,6 +48,7 @@ namespace GamePlay
             entity.AddFireEffect(_fireEffect);
             entity.AddFireAction(new EventAction());
             entity.AddBehaviour<FireEffectBehaviour>();
+            entity.AddBehaviour<FireBehaviour>();
         }
     }
 }

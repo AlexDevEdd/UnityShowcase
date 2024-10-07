@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using Atomic.Elements;
 using Atomic.Entities;
 using GameCycle;
@@ -12,33 +12,34 @@ namespace GamePlay
     [UsedImplicitly]
     public sealed class WeaponSystem : IInitializable, IGameStart, IGameFinish
     {
-        private EventAction<int> _switchWeaponAction;
+        public IEvent<int> SwitchWeaponAction;
         
         private readonly IEntity _entity;
         private readonly IEntityWorld _entityWorld;
         
         private Transform _currentLeftHandIKTarget;
         private IVariable<IEntity> _currentWeapon;
-        private List<IEntity> _weapons;
-
+        private IReactiveList<IEntity> _weapons;
+        
         public WeaponSystem(IEntity entity, IEntityWorld entityWorld)
         {
             _entity = entity;
             _entityWorld = entityWorld;
         }
-        
+
         public void Initialize()
         {
             _currentLeftHandIKTarget = _entity.GetLeftHandIKTarget();
-            _switchWeaponAction = _entity.GetSwitchWeaponEvent();
+            SwitchWeaponAction = _entity.GetSwitchWeaponEvent();
             _currentWeapon = _entity.GetCurrentWeapon();
-            _weapons = new List<IEntity>(_entityWorld.GetEntitiesWithTag(TagAPI.Weapon));
+            _weapons = new ReactiveList<IEntity>(_entityWorld.GetEntitiesWithTag(TagAPI.Weapon)
+                .OrderBy(entity => entity.GetHotBarSlotNumber().Value));
         }
         
         public void OnStart()
         {
-            _switchWeaponAction.Subscribe(OnSwitchWeapon);
-            OnSwitchWeapon(1);
+            SwitchWeaponAction.Subscribe(OnSwitchWeapon);
+            SwitchWeaponAction?.Invoke(1);
         }
         
         private void OnSwitchWeapon(int index)
@@ -60,9 +61,14 @@ namespace GamePlay
             _currentWeapon.Value = current;
         }
 
+        public IReactiveList<IEntity> GetWeapons()
+        {
+            return _weapons;
+        }
+
         public void OnFinish()
         {
-            _switchWeaponAction.Unsubscribe(OnSwitchWeapon);
+            SwitchWeaponAction.Unsubscribe(OnSwitchWeapon);
         }
     }
 }

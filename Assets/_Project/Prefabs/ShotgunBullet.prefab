@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoRefresh: 1
-  installOnAwake: 1
+  installOnAwake: 0
   installPipeline:
   - {fileID: -4676650314551735856}
   onInstalled:
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileType: 3
   _rigidbody: {fileID: 8215601511166676351}
-  _moveSpeed: 10
+  _moveSpeed: 100
   _lifeTime: 3
   _collisionObserver: {fileID: -3740859585735742405}
 --- !u!114 &-3740859585735742405
@@ -144,7 +144,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!135 &4011865307333140157
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 2
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3

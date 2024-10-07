@@ -34,6 +34,9 @@ namespace GamePlay
         private Transform _currentLeftHandIKTarget;
         
         [SerializeField] 
+        private Transform _weaponHolder;
+        
+        [SerializeField] 
         private Animator _animator;
         
         [SerializeField] 
@@ -77,10 +80,13 @@ namespace GamePlay
             entity.AddBehaviour<WeaponAnimationLayerBehaviour>();
 
             entity.AddReloadWeaponEvent(new EventAction());
+            entity.AddReloadWeaponRequest(new EventAction());
+            entity.AddIsReloading(new ReactiveBool(false));
             entity.AddBehaviour<WeaponReloadAnimationBehaviour>();
 
             entity.AddRig(_rig);
             entity.AddLeftHandIKTarget(_currentLeftHandIKTarget);
+            entity.AddWeaponHolder(_weaponHolder);
         }
     }
 }

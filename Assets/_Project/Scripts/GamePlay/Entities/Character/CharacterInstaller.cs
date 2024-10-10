@@ -3,6 +3,7 @@ using Atomic.Entities;
 using Atomic.Extensions;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Serialization;
 using Utils;
 
 namespace GamePlay
@@ -17,6 +18,12 @@ namespace GamePlay
         
         [SerializeField]
         private float _runSpeed = 3;
+        
+        [SerializeField]
+        private float _health = 100;
+        
+        [SerializeField]
+        private int _maxHealth = 100;
         
         [SerializeField]
         private Vector3 _moveDirection;
@@ -48,45 +55,54 @@ namespace GamePlay
         
         public override void Install(IEntity entity)
         {
+            //components
+            entity.AddRig(_rig);
             entity.AddCamera(Camera.main);
-            entity.AddLayerMask(_aimLayerMask);
+            entity.AddAnimator(_animator);
             entity.AddRayHitInfo(new ReactiveVariable<RaycastHit>());
             entity.AddCharacterController(_characterController);
             
-            entity.AddAimTransform(_aimTransform);
-            entity.AddBehaviour<AimBehaviour>();
-            
             entity.AddTransform(transform);
+            entity.AddAimTransform(_aimTransform);
+            entity.AddLeftHandIKTarget(_currentLeftHandIKTarget);
+            entity.AddWeaponHolder(_weaponHolder);
+            
+            entity.AddCurrentWeapon(new ReactiveVariable<IEntity>(_defaultWeapon));
+            
+            //params
+            entity.AddMoveSpeed(new ReactiveFloat(_moveSpeed));
+            entity.AddRunSpeed(new ReactiveFloat(_runSpeed));
+            entity.AddHealth(new ReactiveFloat(_health));
+            entity.AddMaxHealth(new ReactiveInt(_maxHealth));
+            
+            entity.AddLayerMask(_aimLayerMask);
+            entity.AddMoveDirection(new ReactiveVector3(_moveDirection));
+            entity.AddLookingDirection(new ReactiveVector2(_lookingDirection));
             entity.AddPosition(new float3Reactive(transform.position));
             entity.AddRotation(new quaternionReactive(transform.rotation));
             
-            entity.AddMoveSpeed(_moveSpeed);
-            entity.AddRunSpeed(_runSpeed);
-            entity.AddMoveDirection(_moveDirection);
-            entity.AddIsRunning(new ReactiveBool(false));
+            //behaviors
+            entity.AddBehaviour<AimBehaviour>();
             entity.AddBehaviour<CharacterMovementBehaviour>();
-            
-            entity.AddLookingDirection(_lookingDirection);
             entity.AddBehaviour<CharacterRotationBehaviour>();
-
-            entity.AddAnimator(_animator);
             entity.AddBehaviour<CharacterAnimationMovementBehaviour>();
-
-            entity.AddFireAction(new EventAction());
             entity.AddBehaviour<CharacterAnimationFireBehaviour>();
-            
-            entity.AddCurrentWeapon(new ReactiveVariable<IEntity>(_defaultWeapon));
-            entity.AddSwitchWeaponEvent(new EventAction<int>());
             entity.AddBehaviour<WeaponAnimationLayerBehaviour>();
-
+            entity.AddBehaviour<WeaponReloadAnimationBehaviour>();
+            
+            //flags
+            entity.AddIsRunning(new ReactiveBool(false));
+            entity.AddIsReloading(new ReactiveBool(false));
+            
+            //Events & Requests
+            entity.AddFireAction(new EventAction());
+            entity.AddSwitchWeaponEvent(new EventAction<int>());
             entity.AddReloadWeaponEvent(new EventAction());
             entity.AddReloadWeaponRequest(new EventAction());
-            entity.AddIsReloading(new ReactiveBool(false));
-            entity.AddBehaviour<WeaponReloadAnimationBehaviour>();
+            
 
-            entity.AddRig(_rig);
-            entity.AddLeftHandIKTarget(_currentLeftHandIKTarget);
-            entity.AddWeaponHolder(_weaponHolder);
+
+            
         }
     }
 }

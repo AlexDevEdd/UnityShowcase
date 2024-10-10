@@ -155,3 +155,11 @@ MonoBehaviour:
     - id: 42
       name: ReloadWeaponRequest
       type: EventAction
+  - name: Stats
+    indexes:
+    - id: 43
+      name: Health
+      type: ReactiveFloat
+    - id: 44
+      name: MaxHealth
+      type: ReactiveInt

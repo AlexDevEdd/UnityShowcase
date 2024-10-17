@@ -28,6 +28,7 @@ namespace UI
         public void SetIcon(Sprite icon)
         {
             _iconImage.sprite = icon;
+            
         }
     }
 }

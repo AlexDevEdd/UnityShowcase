@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10f62366b8b4b15b1bf35e2b066b073, type: 3}
+  m_Name: BlackboardConfig
+  m_EditorClassIdentifier: 
+  Namespace: Atomic.AI
+  directoryPath: Assets/_Project/Scripts/GamePlay/Codegen
+  className: BlackboardAPI
+  imports:
+  - GamePlay
+  - UnityEngine
+  - Atomic.Entities
+  - Unity.Mathematics
+  keys:
+  - id: 0
+    name: UNDEFINED
+    type: 
+  - id: 1
+    name: CollidersBuffer
+    type: 'BufferData<Collider> : struct'
+  - id: 2
+    name: SphereSensorData
+    type: 'SphereSensorData : struct'
+  - id: 3
+    name: Target
+    type: 'IEntity : class'
+  - id: 4
+    name: MovePosition
+    type: float3
+  - id: 5
+    name: StoppingDistance
+    type: float
+  - id: 6
+    name: AttackData
+    type: 'AttackData : struct'
+  - id: 7
+    name: PatrolData
+    type: 'PatrolData : struct'

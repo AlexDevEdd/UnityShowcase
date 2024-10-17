@@ -5,6 +5,7 @@ namespace AssetManagement
         public const string BOOT = "Boot";
         public const string MENU = "Menu";
         public const string GAME = "Game";
+        public const string SANDBOX = "Sandbox";
         public const string SETTINGS = "Settings";
         public const string CELL_VIEW = "CellView";
         public const string SHOTGUN_BULLET = "ShotgunBullet";

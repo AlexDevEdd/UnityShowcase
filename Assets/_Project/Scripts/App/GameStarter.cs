@@ -20,8 +20,8 @@ namespace App
         async void IInitializable.Initialize()
         {
             await _assetProvider.InitializeAsync();
-            //await _sceneLoader.LoadAsync(AssetKeys.SANDBOX);
-            await _sceneLoader.LoadAsync(AssetKeys.GAME);
+            await _sceneLoader.LoadAsync(AssetKeys.SANDBOX);
+            //await _sceneLoader.LoadAsync(AssetKeys.GAME);
         }
     }
 }

@@ -22,6 +22,7 @@ MonoBehaviour:
   - Unity.Mathematics
   - UnityEngine.Animations.Rigging
   - GamePlay
+  - UnityEngine.AI
   categories:
   - name: Entity
     indexes:
@@ -163,3 +164,8 @@ MonoBehaviour:
     - id: 44
       name: MaxHealth
       type: ReactiveInt
+  - name: Components
+    indexes:
+    - id: 45
+      name: Agent
+      type: NavMeshAgent

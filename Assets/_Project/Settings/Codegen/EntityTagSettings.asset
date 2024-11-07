@@ -20,3 +20,5 @@ MonoBehaviour:
     type: Character
   - id: 2
     type: Weapon
+  - id: 3
+    type: Enemy

@@ -10,6 +10,7 @@ using Atomic.Extensions;
 using Unity.Mathematics;
 using UnityEngine.Animations.Rigging;
 using GamePlay;
+using UnityEngine.AI;
 
 namespace Atomic.Entities
 {

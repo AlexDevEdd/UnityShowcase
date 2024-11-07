@@ -7,6 +7,7 @@ using GamePlay;
 using UnityEngine;
 using Atomic.Entities;
 using Unity.Mathematics;
+using UnityEngine.AI;
 namespace Atomic.AI
 {
     public static class BlackboardAPI
@@ -18,7 +19,8 @@ namespace Atomic.AI
         public const int StoppingDistance = 5; // float
         public const int AttackData = 6; // AttackData : struct
         public const int PatrolData = 7; // PatrolData : struct
-        public const int Self = 8; // IEntity : class
+        public const int Agent = 8; // NavMeshAgent : class
+        public const int Self = 9; // IEntity : class
 
 
         ///Extensions
@@ -132,6 +134,22 @@ namespace Atomic.AI
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool DelPatrolData(this IBlackboard obj) => obj.DelObject(PatrolData);
+
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasAgent(this IBlackboard obj) => obj.HasObject(Agent);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static NavMeshAgent  GetAgent(this IBlackboard obj) => obj.GetObject<NavMeshAgent >(Agent);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetAgent(this IBlackboard obj, out NavMeshAgent  value) => obj.TryGetObject(Agent, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetAgent(this IBlackboard obj, NavMeshAgent  value) => obj.SetObject(Agent, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelAgent(this IBlackboard obj) => obj.DelObject(Agent);
 
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]

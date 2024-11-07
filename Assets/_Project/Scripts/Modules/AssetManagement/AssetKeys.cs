@@ -1,3 +1,5 @@
+using UnityEngine.AddressableAssets;
+
 namespace AssetManagement
 {
     public static class AssetKeys
@@ -12,6 +14,7 @@ namespace AssetManagement
         public const string PISTOL_BULLET = "PistolBullet";
         public const string PLAZMA_BULLET = "PlazmaBullet";
         public const string SNIPER_BULLET = "SniperBullet";
-        
+        public const string CURSOR_FIRE = "CursorFire";
+        public const string CURSOR_UI = "CursorUI";
     }
 }

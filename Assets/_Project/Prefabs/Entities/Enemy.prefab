@@ -1,0 +1,454 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3043452577368909144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4739706408270467890}
+  - component: {fileID: 754312445163128799}
+  - component: {fileID: 7504604228845218045}
+  - component: {fileID: 5488940632833601545}
+  m_Layer: 0
+  m_Name: Capsule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4739706408270467890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043452577368909144}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2485113613653091284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &754312445163128799
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043452577368909144}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &7504604228845218045
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043452577368909144}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &5488940632833601545
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043452577368909144}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4616012167407429408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2604658558430095069}
+  - component: {fileID: 1344736745571551712}
+  - component: {fileID: 919067020295061278}
+  - component: {fileID: 4373377475508907995}
+  m_Layer: 0
+  m_Name: <AI>
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2604658558430095069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616012167407429408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 347157968664718817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344736745571551712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616012167407429408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09c0b93b7484545a4777c934e99a69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  installers:
+  - rid: 2770693736993652742
+  - rid: 2770693736993652743
+  - rid: 2770693736993652746
+  - rid: 2770693736993652757
+  - rid: 2770693736993652759
+  - rid: 2770693736993652808
+  references:
+    version: 2
+    RefIds:
+    - rid: 2770693736993652742
+      type: {class: SphereSensorDataInstaller, ns: GamePlay, asm: GamePlay}
+      data:
+        _sensorData:
+          Center: {fileID: 347157968664718817}
+          Radius: 5
+          LayerMask:
+            serializedVersion: 2
+            m_Bits: 64
+    - rid: 2770693736993652743
+      type: {class: PatrolDataInstaller, ns: GamePlay, asm: GamePlay}
+      data:
+        _patrolData:
+          Enabled: 0
+          Index: 0
+          Points:
+          - {fileID: 0}
+          - {fileID: 0}
+          - {fileID: 0}
+          - {fileID: 0}
+    - rid: 2770693736993652746
+      type: {class: CollidersBufferInstaller, ns: GamePlay, asm: GamePlay}
+      data:
+        _initialSize: 10
+    - rid: 2770693736993652757
+      type: {class: FloatInstaller, ns: Atomic.AI, asm: Modules.AI.Blackboard}
+      data:
+        key: 5
+        value: 0.5
+    - rid: 2770693736993652759
+      type: {class: SelfInstaller, ns: GamePlay, asm: GamePlay}
+      data:
+        _entity: {fileID: 1068790016735817120}
+    - rid: 2770693736993652808
+      type: {class: AttackDataInstaller, ns: GamePlay, asm: GamePlay}
+      data:
+        _key: 6
+        _attackData:
+          <IsEnabled>k__BackingField: 1
+          <MinDistance>k__BackingField: 1
+--- !u!114 &919067020295061278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616012167407429408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb358209d55a48fa85f050561a0aa4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackboard: {fileID: 1344736745571551712}
+  initialBehaviours:
+  - rid: 2770693736993652738
+  - rid: 2770693736993652789
+  controlState: 1
+  updateMode: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2770693736993652738
+      type: {class: ThrottleBehaviour, ns: Atomic.AI, asm: Atomic.AI.Behaviours}
+      data:
+        minScanPeriod: 0.2
+        maxScanPeriod: 0.3
+        behaviour:
+          rid: 2770693736993652745
+    - rid: 2770693736993652745
+      type: {class: SphereColliderSensor, ns: GamePlay, asm: GamePlay}
+      data: 
+    - rid: 2770693736993652789
+      type: {class: TargetSelectBehaviour, ns: GamePlay, asm: GamePlay}
+      data: 
+--- !u!114 &4373377475508907995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616012167407429408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e3e9c8d94b5478cb462ccae006f52f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackboard: {fileID: 1344736745571551712}
+  initialRoot:
+    rid: 2770693736993652790
+  controlState: 1
+  updateMode: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2770693736993652790
+      type: {class: BTNodeAborter, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        node:
+          rid: 2770693736993652791
+        conditions:
+        - rid: 2770693736993652807
+    - rid: 2770693736993652791
+      type: {class: BTNodeSelector, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        name: Root
+        nodes:
+        - rid: 2770693736993652793
+        - rid: 2770693736993652792
+    - rid: 2770693736993652792
+      type: {class: BTNodeSequence, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        name: Patrol
+        nodes:
+        - rid: 2770693736993652794
+        - rid: 2770693736993652795
+        - rid: 2770693736993652796
+    - rid: 2770693736993652793
+      type: {class: BTNodeSequence, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        name: Attack
+        nodes:
+        - rid: 2770693736993652797
+        - rid: 2770693736993652798
+    - rid: 2770693736993652794
+      type: {class: BTNodeAction, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        name: Assign Waypoint
+        actions:
+        - rid: 2770693736993652799
+    - rid: 2770693736993652795
+      type: {class: BTNodeDecorator, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        node:
+          rid: 2770693736993652800
+        enableActions:
+        - rid: 2770693736993652801
+        disableActions: []
+        updateActions: []
+        abortActions: []
+    - rid: 2770693736993652796
+      type: {class: BTNodeAction, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        name: Next Waypoint
+        actions:
+        - rid: 2770693736993652802
+    - rid: 2770693736993652797
+      type: {class: BTNodeCondition, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        name: Check Target
+        condition:
+          rid: 2770693736993652803
+    - rid: 2770693736993652798
+      type: {class: BTNodeDecorator, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
+      data:
+        node:
+          rid: 2770693736993652804
+        enableActions:
+        - rid: 2770693736993652805
+        disableActions: []
+        updateActions:
+        - rid: 2770693736993652806
+        abortActions: []
+    - rid: 2770693736993652799
+      type: {class: AssignWaypointBlackboardAction, ns: GamePlay, asm: GamePlay}
+      data: 
+    - rid: 2770693736993652800
+      type: {class: MoveToPositionAINode, ns: GamePlay, asm: GamePlay}
+      data: 
+    - rid: 2770693736993652801
+      type: {class: AssignStoppingDistanceBlackboardAction, ns: GamePlay, asm: GamePlay}
+      data:
+        _minDistance: 0.2
+    - rid: 2770693736993652802
+      type: {class: NextWaypointBlackboardAction, ns: GamePlay, asm: GamePlay}
+      data: 
+    - rid: 2770693736993652803
+      type: {class: HasTargetBlackboardCondition, ns: GamePlay, asm: GamePlay}
+      data: 
+    - rid: 2770693736993652804
+      type: {class: MoveToPositionAINode, ns: GamePlay, asm: GamePlay}
+      data: 
+    - rid: 2770693736993652805
+      type: {class: AssignStoppingDistanceFromAttackDataBlackboardAction, ns: GamePlay,
+        asm: GamePlay}
+      data: 
+    - rid: 2770693736993652806
+      type: {class: AssignTargetMovePositionBlackboardAction, ns: GamePlay, asm: GamePlay}
+      data: 
+    - rid: 2770693736993652807
+      type: {class: HasTargetBlackboardCondition, ns: GamePlay, asm: GamePlay}
+      data: 
+--- !u!1 &4835228193102820098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2485113613653091284}
+  m_Layer: 0
+  m_Name: <view>
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2485113613653091284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835228193102820098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4739706408270467890}
+  m_Father: {fileID: 347157968664718817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7418671062698925902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347157968664718817}
+  - component: {fileID: 1068790016735817120}
+  - component: {fileID: 650854702883267522}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &347157968664718817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418671062698925902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2485113613653091284}
+  - {fileID: 2604658558430095069}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1068790016735817120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418671062698925902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3142498ee69840069f3a93c11b1e1f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRefresh: 1
+  installOnAwake: 1
+  installPipeline:
+  - {fileID: 650854702883267522}
+  onInstalled:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &650854702883267522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418671062698925902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c319575d344e9fa2f01e61b2bf489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

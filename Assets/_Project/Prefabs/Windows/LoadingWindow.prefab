@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2078234606628499311}
   - component: {fileID: 4378953412005769909}
   - component: {fileID: 6061042514735584118}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ProgressText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5751293336758386677}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -146,7 +145,7 @@ GameObject:
   - component: {fileID: 1871026141669691282}
   - component: {fileID: 9124258243394587939}
   - component: {fileID: 928644399980439224}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +165,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5751293336758386677}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -224,7 +222,7 @@ GameObject:
   - component: {fileID: 467407783724497735}
   - component: {fileID: 3657994239177926892}
   - component: {fileID: 5966441594083352734}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LoadingWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +244,6 @@ RectTransform:
   - {fileID: 7588132342118012068}
   - {fileID: 5751293336758386677}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -260,7 +257,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5687759135642530554}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -270,7 +267,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -309,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63471e386a4abac4c93f294c1b0c4f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvas: {fileID: 2438193865177379268}
   _canvasGroup: {fileID: 5966441594083352734}
   _progressTitle: {fileID: 2292038335633731648}
   _progressText: {fileID: 6061042514735584118}
@@ -322,7 +322,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5687759135642530554}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 7588132342118012068}
   - component: {fileID: 4743784390857059811}
   - component: {fileID: 1078100247564379896}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 643627850025895226}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -413,7 +412,7 @@ GameObject:
   - component: {fileID: 5890093594957657283}
   - component: {fileID: 194166116232832390}
   - component: {fileID: 7997273375577195507}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +432,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5751293336758386677}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -489,7 +487,7 @@ GameObject:
   - component: {fileID: 1004993118176495606}
   - component: {fileID: 3912390122758056518}
   - component: {fileID: 2292038335633731648}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +507,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5751293336758386677}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -622,7 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5751293336758386677}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Progress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +643,6 @@ RectTransform:
   - {fileID: 5890093594957657283}
   - {fileID: 2078234606628499311}
   m_Father: {fileID: 643627850025895226}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}

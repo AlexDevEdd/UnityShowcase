@@ -27,6 +27,8 @@ namespace App
         {
             var countStep = _steps.Count;
             
+            _loadingWindow.Show();
+            
             for (var index = 0; index < countStep; index++)
             {
                 var step = _steps[index];

@@ -83,6 +83,7 @@ namespace GamePlay
            var bullet = await _assetProvider.LoadAsync<GameObject>(key);
 
            var bulletEntity = bullet.GetComponent<SceneEntity>();
+           bulletEntity.Install();
            var type =  bulletEntity.GetProjectileType();
            _bulletPoolMap.Add(type, new MonoPool<SceneEntity>(bulletEntity, size, _poolContainer));
         }

@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -9,7 +10,8 @@ namespace App
     {
         private const float FADE_END_VALUE = 0f;
         private const float FILL_START_VALUE = 0f;
-        
+
+        [SerializeField] private Canvas _canvas;
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private TMP_Text _progressTitle;
         [SerializeField] private TMP_Text _progressText;
@@ -24,7 +26,9 @@ namespace App
         {
             ResetProgress();
             _canvasGroup.alpha = 1;
-            gameObject.SetActive(true);
+            _canvas.enabled = true;
+            var localPos = transform.localPosition;
+            var pos = transform.position;
         }
 
         public void SetTitle(string text)
@@ -50,7 +54,7 @@ namespace App
             _canvasGroup.DOFade(FADE_END_VALUE, _fadeDuration)
                 .OnComplete(() =>
                 {
-                    gameObject.SetActive(false);
+                    _canvas.enabled = false;
                     _fillImage.fillAmount = FILL_START_VALUE;
                 });
         }

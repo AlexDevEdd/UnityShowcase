@@ -1,25 +1,58 @@
-﻿using JetBrains.Annotations;
+﻿using AssetManagement;
+using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
 
 namespace GamePlay
 {
     [UsedImplicitly]
-    public class CursorSystem : IInitializable
+    public class CursorSystem : IInitializable, ITickable
     {
-        public void Initialize()
+        private readonly IAssetProvider _assetProvider;
+
+        private Texture2D _fire;
+        private Texture2D _ui;
+        
+        public CursorSystem(IAssetProvider assetProvider)
         {
-            DisableCursor();
+            _assetProvider = assetProvider;
+        }
+        public async void Initialize()
+        {
+            await LoadCursorTexturesAsync();
+            SetUpFireCursor();
         }
 
-        public void DisableCursor()
+        private async UniTask LoadCursorTexturesAsync()
         {
+           _fire = await _assetProvider.LoadAsync<Texture2D>(AssetKeys.CURSOR_FIRE);
+           _ui = await _assetProvider.LoadAsync<Texture2D>(AssetKeys.CURSOR_UI);
+        } 
+
+        public void SetUpFireCursor()
+        {
+            //Cursor.SetCursor(_fire, Vector2.zero, CursorMode.Auto);
             Cursor.visible = false;
         }
         
-        public void EnableCursor()
+        public void SetUpUiCursor()
         {
+            //Cursor.SetCursor(_ui, Vector2.zero, CursorMode.Auto);
             Cursor.visible = true;
+        }
+
+        public void Tick()
+        {
+            if (Input.GetKey(KeyCode.Keypad1))
+            {
+                SetUpFireCursor();
+            }
+
+            if (Input.GetKey(KeyCode.Keypad2))
+            {
+                SetUpUiCursor();
+            }
         }
     }
 }

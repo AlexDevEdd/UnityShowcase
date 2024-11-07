@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Cursors
+  m_EditorClassIdentifier: 
+  m_GroupName: Cursors
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 708a02bbe5a34364dae26d69bf96fdae
+  m_SerializeEntries:
+  - m_GUID: 94c67b8d685a649e98cf98783eff17f8
+    m_Address: CursorUI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13bcbe99f3f0c3c48837a45455d75f24
+    m_Address: CursorFire
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ef26846cda255df42a236aeba21b78ed, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b8456f2e73a55ff4187f58b6933f903c, type: 2}
+    - {fileID: 11400000, guid: 204a54a55a7c5d047bf515750b6331a4, type: 2}

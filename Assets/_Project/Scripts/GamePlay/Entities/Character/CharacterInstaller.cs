@@ -52,6 +52,11 @@ namespace GamePlay
         [SerializeField] 
         private SceneEntity _defaultWeapon;
         
+        [SerializeField] 
+        private LineRenderer _lineRenderer;
+        
+        [SerializeField]
+        private float _laserDistance = 4f;
         
         public override void Install(IEntity entity)
         {
@@ -61,6 +66,7 @@ namespace GamePlay
             entity.AddAnimator(_animator);
             entity.AddRayHitInfo(new ReactiveVariable<RaycastHit>());
             entity.AddCharacterController(_characterController);
+            entity.AddLaser(_lineRenderer);
             
             entity.AddTransform(transform);
             entity.AddAimTransform(_aimTransform);
@@ -74,6 +80,7 @@ namespace GamePlay
             entity.AddRunSpeed(new ReactiveFloat(_runSpeed));
             entity.AddHealth(new ReactiveFloat(_health));
             entity.AddMaxHealth(new ReactiveInt(_maxHealth));
+            entity.AddLaserDistance(new ReactiveFloat(_laserDistance));
             
             entity.AddLayerMask(_aimLayerMask);
             entity.AddMoveDirection(new ReactiveVector3(_moveDirection));
@@ -89,6 +96,7 @@ namespace GamePlay
             entity.AddBehaviour<CharacterAnimationFireBehaviour>();
             entity.AddBehaviour<WeaponAnimationLayerBehaviour>();
             entity.AddBehaviour<WeaponReloadAnimationBehaviour>();
+            entity.AddBehaviour<LaserBehaviour>();
             
             //flags
             entity.AddIsRunning(new ReactiveBool(false));

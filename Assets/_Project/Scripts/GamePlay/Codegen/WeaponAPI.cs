@@ -30,6 +30,7 @@ namespace Atomic.Entities
         public const int FireEffect = 35; // ParticleSystem
         public const int TotalAmmo = 39; // ReactiveInt
         public const int MagazineCapacity = 40; // ReactiveInt
+        public const int LaserDistance = 47; // ReactiveFloat
 
 
         ///Extensions
@@ -266,5 +267,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetMagazineCapacity(this IEntity obj, ReactiveInt value) => obj.SetValue(MagazineCapacity, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveFloat GetLaserDistance(this IEntity obj) => obj.GetValue<ReactiveFloat>(LaserDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetLaserDistance(this IEntity obj, out ReactiveFloat value) => obj.TryGetValue(LaserDistance, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddLaserDistance(this IEntity obj, ReactiveFloat value) => obj.AddValue(LaserDistance, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasLaserDistance(this IEntity obj) => obj.HasValue(LaserDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelLaserDistance(this IEntity obj) => obj.DelValue(LaserDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetLaserDistance(this IEntity obj, ReactiveFloat value) => obj.SetValue(LaserDistance, value);
     }
 }

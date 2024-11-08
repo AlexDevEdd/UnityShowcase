@@ -37,8 +37,12 @@ namespace GamePlay
             
             var projectileType = _currentWeapon.Value.GetProjectileType();
             var firePoint = _currentWeapon.Value.GetFirePoint();
+            firePoint.LookAt(_aimTransform);
+            
             _currentWeapon.Value.GetFireAction().Invoke();
-            _bulletFactory.GetOrCreate(projectileType, firePoint, _aimTransform.forward);
+            var direction = (_aimTransform.position - firePoint.position).normalized;
+            direction.y = 0f;
+            _bulletFactory.GetOrCreate(projectileType, firePoint, direction);
         }
 
         public void OnFinish()

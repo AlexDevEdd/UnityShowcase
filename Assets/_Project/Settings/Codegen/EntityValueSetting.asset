@@ -139,6 +139,9 @@ MonoBehaviour:
     - id: 40
       name: MagazineCapacity
       type: ReactiveInt
+    - id: 47
+      name: LaserDistance
+      type: ReactiveFloat
   - name: Actions
     indexes:
     - id: 14
@@ -169,3 +172,6 @@ MonoBehaviour:
     - id: 45
       name: Agent
       type: NavMeshAgent
+    - id: 46
+      name: Laser
+      type: LineRenderer

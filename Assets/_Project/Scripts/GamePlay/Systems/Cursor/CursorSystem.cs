@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using Zenject;
 
 namespace GamePlay
@@ -52,6 +53,22 @@ namespace GamePlay
             if (Input.GetKey(KeyCode.Keypad2))
             {
                 SetUpUiCursor();
+            }
+            
+            if (Input.GetKey(KeyCode.Keypad8))
+            {
+                if(Mathf.Approximately(Time.timeScale, 0.2f)) return;
+                Time.timeScale -= 0.2f;
+            }
+            
+            if (Input.GetKey(KeyCode.Keypad9))
+            {
+                Time.timeScale += 0.2f;
+            }
+            
+            if (Input.GetKey(KeyCode.Keypad7))
+            {
+                Time.timeScale = 1;
             }
         }
     }

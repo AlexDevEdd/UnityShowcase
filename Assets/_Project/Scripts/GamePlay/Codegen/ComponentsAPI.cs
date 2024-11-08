@@ -18,6 +18,7 @@ namespace Atomic.Entities
     {
         ///Keys
         public const int Agent = 45; // NavMeshAgent
+        public const int Laser = 46; // LineRenderer
 
 
         ///Extensions
@@ -38,5 +39,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetAgent(this IEntity obj, NavMeshAgent value) => obj.SetValue(Agent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static LineRenderer GetLaser(this IEntity obj) => obj.GetValue<LineRenderer>(Laser);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetLaser(this IEntity obj, out LineRenderer value) => obj.TryGetValue(Laser, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddLaser(this IEntity obj, LineRenderer value) => obj.AddValue(Laser, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasLaser(this IEntity obj) => obj.HasValue(Laser);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelLaser(this IEntity obj) => obj.DelValue(Laser);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetLaser(this IEntity obj, LineRenderer value) => obj.SetValue(Laser, value);
     }
 }

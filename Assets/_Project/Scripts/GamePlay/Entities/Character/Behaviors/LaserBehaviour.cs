@@ -13,12 +13,15 @@ namespace GamePlay
         private Transform _aim;
         private ReactiveVariable<IEntity> _weapon;
         private IValue<float> _laserDistance;
+        private IVariable<bool> _isReloading;
         
         private float _laserTipLenght;
         private Transform _firePoint;
         
         public void Init(IEntity entity)
         {
+            _isReloading = entity.GetIsReloading();
+            
             _weapon = entity.GetCurrentWeapon();
             _weapon.Subscribe(OnWeaponSwitched);
             _firePoint = _weapon.Value.GetFirePoint();
@@ -36,6 +39,14 @@ namespace GamePlay
 
         public void OnUpdate(IEntity entity, float deltaTime)
         {
+            if (_isReloading.Value)
+            {
+                _laser.SetPosition(0, _firePoint.position);
+                _laser.SetPosition(1, _firePoint.position );
+                _laser.SetPosition(2, _firePoint.position);
+                return;
+            }
+            
             _laserTipLenght = DEFAULT_LASER_TIP_LENGHT;
             var direction = (_aim.position - _firePoint.position).normalized;
             

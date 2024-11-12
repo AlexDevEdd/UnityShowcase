@@ -1,6 +1,5 @@
 using System;
 using Atomic.AI;
-using Unity.Mathematics;
 
 namespace GamePlay
 {
@@ -9,8 +8,11 @@ namespace GamePlay
     {
         public void Invoke(IBlackboard blackboard)
         {
-            AttackData attackData = blackboard.GetAttackData();
-            blackboard.SetStoppingDistance(attackData.MinDistance);
+            if (!blackboard.TryGetAttackData(out Ref<AttackData> attackData))
+                return;
+            
+            blackboard.SetStoppingDistance(attackData.value.MinDistance);
+            blackboard.GetAgent().stoppingDistance = attackData.value.MinDistance;
         }
     }
 }

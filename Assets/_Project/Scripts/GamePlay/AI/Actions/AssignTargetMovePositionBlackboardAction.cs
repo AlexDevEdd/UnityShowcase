@@ -13,8 +13,6 @@ namespace GamePlay
             IEntity target = blackboard.GetTarget();
             float3 targetPosition = target.GetTransform().position;
             blackboard.SetMovePosition(targetPosition);
-
         }
     }
-
 }

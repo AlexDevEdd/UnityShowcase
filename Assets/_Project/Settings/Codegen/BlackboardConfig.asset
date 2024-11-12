@@ -52,3 +52,9 @@ MonoBehaviour:
   - id: 9
     name: Self
     type: 'IEntity : class'
+  - id: 10
+    name: Animator
+    type: 'Animator : class'
+  - id: 11
+    name: IsAttacking
+    type: bool

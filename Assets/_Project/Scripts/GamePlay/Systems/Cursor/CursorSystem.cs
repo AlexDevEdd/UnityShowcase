@@ -43,6 +43,8 @@ namespace GamePlay
             Cursor.visible = true;
         }
 
+        
+        //TODO: remove when debuging finished
         public void Tick()
         {
             if (Input.GetKey(KeyCode.Keypad1))

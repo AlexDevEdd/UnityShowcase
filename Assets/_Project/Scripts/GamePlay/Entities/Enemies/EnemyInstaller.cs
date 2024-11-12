@@ -16,7 +16,8 @@ namespace GamePlay
             entity.AddTransform(transform);
             entity.AddAgent(_agent);
             entity.AddMoveDirection(new ReactiveVector3(Vector3.zero));
-            entity.AddMoveSpeed(new ReactiveFloat(5));
+            entity.AddMoveSpeed(new ReactiveFloat(0));
+            entity.AddFireAction(new EventAction());
         }
     }
 }

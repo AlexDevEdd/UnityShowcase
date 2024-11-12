@@ -1,6 +1,8 @@
 ﻿using System;
 using Atomic.AI;
+using Atomic.Entities;
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace GamePlay
 {
@@ -11,28 +13,27 @@ namespace GamePlay
         
         protected override BTResult OnUpdate(IBlackboard blackboard, float deltaTime)
         {
-            if (!blackboard.TryGetAgent(out var agent))
+            if (!blackboard.TryGetSelf(out IEntity entity) ||
+                !blackboard.TryGetAgent(out var agent) ||
+                !blackboard.TryGetMovePosition(out float3 targetPosition))
                 return BTResult.FAILURE;
 
-            return !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance
-                ? BTResult.SUCCESS
-                : BTResult.RUNNING;
-        }
-
-        protected override void OnEnable(IBlackboard blackboard)
-        {
-            if (blackboard.TryGetMovePosition(out float3 targetPosition))
+            if (!entity.TryGetTransform(out var characterTransform))
+                return BTResult.FAILURE;
+            
+            if(blackboard.GetIsAttacking())
+                return BTResult.RUNNING;
+            
+            var targetPos = new Vector3(targetPosition.x, targetPosition.y, targetPosition.z);
+            var distance =  targetPos - characterTransform.position;
+            if (distance.sqrMagnitude <= agent.stoppingDistance)
             {
-                var agent = blackboard.GetAgent();
-                agent.stoppingDistance = 1;
-                agent.SetDestination(targetPosition);
+                agent.SetDestination(characterTransform.position);
+                return BTResult.SUCCESS;
             }
-        }
-
-        protected override void OnDisable(IBlackboard blackboard)
-        {
-            if (blackboard.TryGetAgent(out var agent)) 
-                agent.destination = agent.destination;
+            
+            agent.SetDestination(targetPosition);
+            return BTResult.RUNNING;
         }
     }
 }

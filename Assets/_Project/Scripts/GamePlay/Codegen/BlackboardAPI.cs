@@ -21,6 +21,8 @@ namespace Atomic.AI
         public const int PatrolData = 7; // PatrolData : struct
         public const int Agent = 8; // NavMeshAgent : class
         public const int Self = 9; // IEntity : class
+        public const int Animator = 10; // Animator : class
+        public const int IsAttacking = 11; // bool
 
 
         ///Extensions
@@ -166,6 +168,38 @@ namespace Atomic.AI
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool DelSelf(this IBlackboard obj) => obj.DelObject(Self);
+
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasAnimator(this IBlackboard obj) => obj.HasObject(Animator);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Animator  GetAnimator(this IBlackboard obj) => obj.GetObject<Animator >(Animator);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetAnimator(this IBlackboard obj, out Animator  value) => obj.TryGetObject(Animator, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetAnimator(this IBlackboard obj, Animator  value) => obj.SetObject(Animator, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelAnimator(this IBlackboard obj) => obj.DelObject(Animator);
+
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasIsAttacking(this IBlackboard obj) => obj.HasBool(IsAttacking);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool GetIsAttacking(this IBlackboard obj) => obj.GetBool(IsAttacking);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetIsAttacking(this IBlackboard obj, out bool value) => obj.TryGetBool(IsAttacking, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetIsAttacking(this IBlackboard obj, bool value) => obj.SetBool(IsAttacking, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelIsAttacking(this IBlackboard obj) => obj.DelBool(IsAttacking);
 
     }
 }

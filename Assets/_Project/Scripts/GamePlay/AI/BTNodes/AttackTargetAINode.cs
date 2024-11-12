@@ -1,7 +1,6 @@
 ﻿using System;
 using Atomic.AI;
 using Atomic.Entities;
-using UnityEngine;
 
 namespace GamePlay
 {
@@ -15,24 +14,24 @@ namespace GamePlay
             if (!blackboard.TryGetSelf(out IEntity entity) ||
                 !blackboard.TryGetTarget(out IEntity target) ||
                 !blackboard.TryGetAttackData(out Ref<AttackData> attackData))
-            {
                 return BTResult.FAILURE;
-            }
 
+            if(blackboard.GetIsAttacking())
+                return BTResult.RUNNING;
+            
             if (!entity.TryGetTransform(out var characterTransform) || 
                 !target.TryGetTransform(out var targetTransform))
-            {
                 return BTResult.FAILURE;
-            }
             
-            Vector3 distance = targetTransform.position - characterTransform.position;
-            if (distance.sqrMagnitude > attackData.value.MinDistanceSqr)
-            {
-                return BTResult.FAILURE;
-            }
+            characterTransform.LookAt(targetTransform);
+            
+            var distance = targetTransform.position - characterTransform.position;
+            if (distance.sqrMagnitude > attackData.value.MinDistance)
+                return BTResult.SUCCESS;
             
             entity.GetFireAction().Invoke();
             return BTResult.RUNNING;
+            
         }
     }
 }

@@ -13,6 +13,7 @@ namespace GamePlay
         public void Invoke(IBlackboard blackboard)
         {
             blackboard.SetStoppingDistance(_minDistance);
+            blackboard.GetAgent().stoppingDistance = _minDistance;
         }
     }
 }

@@ -41,7 +41,7 @@ namespace GamePlay
             float3 distance = selfTransform.position - targetTransform.position;
 
             float currentDistance = math.dot(distance, distance);
-            float targetDistance = attackData.value.MinDistanceSqr;
+            float targetDistance = attackData.value.MinDistance;
 
             return _comparisonType switch
             {

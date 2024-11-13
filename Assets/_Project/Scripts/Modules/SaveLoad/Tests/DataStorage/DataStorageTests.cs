@@ -17,13 +17,13 @@ namespace SaveLoad.Tests
         [OneTimeSetUp]
         public void SetUp()
         {
-            _dataStorage = new GameDataStorage(new SaveLoadSerializerFactory());
+            _dataStorage = new GameDataStorage(new SaveLoadSerializerFactory(), TEST_SAVE_KEY);
             _serializableDataMock = new SerializableDataMock();
             _serializableDataMock.Init();
             
-            _dataStorage.RemoveSaves(TEST_SAVE_KEY);
+            _dataStorage.RemoveSaves();
             _dataStorage.SetData(_serializableDataMock.CurrenciesData);
-            _dataStorage.SaveState(TEST_SAVE_KEY);
+            _dataStorage.SaveState().Forget();
         }
 
         [TestCase("gold", 30f, ExpectedResult = true)]
@@ -63,7 +63,7 @@ namespace SaveLoad.Tests
         public void AddAndSaveState()
         {
             _dataStorage.SetData(_serializableDataMock.CharacterUpgradesData);
-            _dataStorage.SaveState(TEST_SAVE_KEY);
+            _dataStorage.SaveState().Forget();
             _dataStorage.TryGetData<TestCharacterUpgradesData>(out var data);
             Assert.IsTrue(data != default);
         }
@@ -71,8 +71,8 @@ namespace SaveLoad.Tests
         [Test]
         public async Task LoadStateAndGetAddedData()
         {
-            _dataStorage.SaveState(TEST_SAVE_KEY);
-            await _dataStorage.LoadState(TEST_SAVE_KEY);
+             _dataStorage.SaveState().Forget();
+            await _dataStorage.LoadState();
             _dataStorage.TryGetData<TestCharacterUpgradesData>(out var data);
             Assert.IsTrue(data != default);
         }
@@ -80,7 +80,7 @@ namespace SaveLoad.Tests
         [OneTimeTearDown] 
         public void ClearTests()
         {
-            _dataStorage.RemoveSaves(TEST_SAVE_KEY);
+            _dataStorage.RemoveSaves();
             _dataStorage = null;
             _serializableDataMock = null;
         }

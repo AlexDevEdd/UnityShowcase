@@ -26,29 +26,32 @@ namespace GamePlay
 
         public override void Install(IEntity entity)
         {
+            //tags
             entity.AddTag(TagAPI.Weapon);
+            
+            //params
             entity.AddHotBarSlotNumber(new ReactiveInt(_slotNumber));
-                
             entity.AddWeaponType(_weaponData.WeaponType);
             entity.AddProjectileType(_weaponData.ProjectileType);
             entity.AddDamage(new ReactiveFloat(_weaponData.Damage));
-            
             entity.AddTotalCapacity(new ReactiveInt(_weaponData.TotalCapacity));
             entity.AddTotalAmmo(new ReactiveInt(_weaponData.TotalAmmo));
-            
             entity.AddMagazineCapacity(new ReactiveInt(_weaponData.MagazineCapacity));
             entity.AddCurrentAmmo(new ReactiveInt(_weaponData.CurrentAmmo));
-            
             entity.AddRechargeDelay(new ReactiveFloat(_weaponData.RechargeDelay));
-
+                
+            //components
             entity.AddLeftHandIKTarget(_leftHandIKTarget);
             entity.AddAnimLayerIndex(_animLayerIndex);
-
-            entity.AddFirePoint(_firePoint);
             entity.AddFireEffect(_fireEffect);
-            entity.AddFireAction(new EventAction());
+            
+            //behaviours
             entity.AddBehaviour<FireEffectBehaviour>();
             entity.AddBehaviour<FireBehaviour>();
+
+            //events & Requests
+            entity.AddFirePoint(_firePoint);
+            entity.AddFireAction(new EventAction());
         }
     }
 }

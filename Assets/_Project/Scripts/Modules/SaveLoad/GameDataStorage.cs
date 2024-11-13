@@ -9,15 +9,16 @@ namespace SaveLoad
     [UsedImplicitly]
     public sealed class GameDataStorage
     {
-        private const string SAVE_KEY = "GAME_REPOSITORY";
+        private readonly string _saveKey;
 
         private readonly ISerializer _serializer;
         private readonly IDataStorage _dataStorage;
         
         private Dictionary<string, string> _gameState = new();
 
-        public GameDataStorage(SaveLoadSerializerFactory serializerFactory)
+        public GameDataStorage(SaveLoadSerializerFactory serializerFactory, string saveKey)
         {
+            _saveKey = saveKey;
             _serializer = serializerFactory.CreateSerializer();
             _dataStorage = serializerFactory.CreateDataStorage();
         }
@@ -60,42 +61,22 @@ namespace SaveLoad
 
         public async UniTask LoadState()
         {
-            var jsonData = await _dataStorage.ReadAsync<Dictionary<string, string>>(SAVE_KEY);
+            var jsonData = await _dataStorage.ReadAsync<Dictionary<string, string>>(_saveKey);
             if(!jsonData.IsNullOrEmpty())
                 _serializer.TryDeserialize(jsonData, out _gameState);
         }
         
-        public async UniTask LoadState(string key)
-        {
-            var jsonData = await _dataStorage.ReadAsync<Dictionary<string, string>>(key);
-            _serializer.TryDeserialize(jsonData, out _gameState);
-        }
-
         public async UniTaskVoid SaveState()
         {
             if(_serializer.TrySerialize(_gameState, out var data))
             {
-               await _dataStorage.WriteAsync(SAVE_KEY, data);
+               await _dataStorage.WriteAsync(_saveKey, data);
             }
         }
         
-        public void SaveState(string key)
-        {
-            if(_serializer.TrySerialize(_gameState, out var data))
-            {
-                _dataStorage.WriteAsync(key, data);
-            }
-        }
-
         public void RemoveSaves()
         {
-            _dataStorage.Remove(SAVE_KEY);
-            _gameState.Clear();
-        }
-        
-        public void RemoveSaves(string key)
-        {
-            _dataStorage.Remove(key);
+            _dataStorage.Remove(_saveKey);
             _gameState.Clear();
         }
     }

@@ -13,6 +13,7 @@ namespace Atomic.Entities
         public const int Character = 1;
         public const int Weapon = 2;
         public const int Enemy = 3;
+        public const int Damagable = 4;
 
 
         ///Extensions
@@ -27,5 +28,9 @@ namespace Atomic.Entities
         public static bool HasEnemyTag(this IEntity obj) => obj.HasTag(Enemy);
         public static bool AddEnemyTag(this IEntity obj) => obj.AddTag(Enemy);
         public static bool DelEnemyTag(this IEntity obj) => obj.DelTag(Enemy);
+
+        public static bool HasDamagableTag(this IEntity obj) => obj.HasTag(Damagable);
+        public static bool AddDamagableTag(this IEntity obj) => obj.AddTag(Damagable);
+        public static bool DelDamagableTag(this IEntity obj) => obj.DelTag(Damagable);
     }
 }

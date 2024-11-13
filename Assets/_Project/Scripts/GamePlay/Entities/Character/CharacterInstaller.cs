@@ -60,6 +60,10 @@ namespace GamePlay
         
         public override void Install(IEntity entity)
         {
+            //tags
+            entity.AddTag(TagAPI.Character);
+            entity.AddTag(TagAPI.Damagable);
+            
             //components
             entity.AddRig(_rig);
             entity.AddCamera(Camera.main);
@@ -98,6 +102,10 @@ namespace GamePlay
             entity.AddBehaviour<WeaponReloadAnimationBehaviour>();
             entity.AddBehaviour<LaserBehaviour>();
             
+            entity.AddBehaviour<DamageRequestBehaviour>();
+            entity.AddBehaviour<ApplyDamageBehaviour>();
+            entity.AddBehaviour<DieAnimationBehaviour>();
+            
             //flags
             entity.AddIsRunning(new ReactiveBool(false));
             entity.AddIsReloading(new ReactiveBool(false));
@@ -107,6 +115,10 @@ namespace GamePlay
             entity.AddSwitchWeaponEvent(new EventAction<int>());
             entity.AddReloadWeaponEvent(new EventAction());
             entity.AddReloadWeaponRequest(new EventAction());
+            
+            entity.AddDamageRequest(new EventAction<IEntity, Vector3, float>());
+            entity.AddDamageEvent(new EventAction<IEntity, Vector3, float>());
+            entity.AddDieAction(new EventAction<IEntity>());
             
 
 

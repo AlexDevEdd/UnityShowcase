@@ -53,8 +53,6 @@ namespace GamePlay
                transform.position = firePoint.position;
                transform.rotation = Quaternion.LookRotation(direction);
                
-               bullet.AddBehaviour<RigidBodyMovementBehaviour>();
-               bullet.AddBehaviour<ReturnToPoolBehaviour>();
                _sceneEntityWorld.AddEntity(bullet);
                
                bullet.GetDieAction().Subscribe(OnDespawn);
@@ -71,6 +69,7 @@ namespace GamePlay
             var type = entity.GetProjectileType();
             if (_bulletPoolMap.TryGetValue(type, out var bulletPool))
             {
+                entity.Disable();
                 bulletPool.DeSpawn(entity.GetSceneEntity());
                 return;
             }

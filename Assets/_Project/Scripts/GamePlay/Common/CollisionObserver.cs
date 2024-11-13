@@ -5,14 +5,16 @@ namespace GamePlay
 {
     public sealed class CollisionObserver : MonoBehaviour
     {
-        public event Action<Collider> OnEnter;
-        public event Action<Collider> OnExit;
-        private void OnTriggerEnter(Collider other)
+        public event Action<Collision> OnEnter;
+        public event Action<Collision> OnExit;
+
+        private void OnCollisionEnter(Collision other)
         {
+            Debug.Log($"{other.gameObject.name}");
             OnEnter?.Invoke(other);
         }
-        
-        private void OnTriggerExit(Collider other)
+
+        private void OnCollisionExit(Collision other)
         {
             OnExit?.Invoke(other);
         }

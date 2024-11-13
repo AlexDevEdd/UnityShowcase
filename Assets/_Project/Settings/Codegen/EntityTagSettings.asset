@@ -22,3 +22,5 @@ MonoBehaviour:
     type: Weapon
   - id: 3
     type: Enemy
+  - id: 4
+    type: Damagable

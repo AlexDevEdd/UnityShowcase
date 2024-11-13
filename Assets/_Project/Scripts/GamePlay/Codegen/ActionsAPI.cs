@@ -22,6 +22,8 @@ namespace Atomic.Entities
         public const int ReloadWeaponEvent = 28; // EventAction
         public const int DieAction = 34; // EventAction<IEntity>
         public const int ReloadWeaponRequest = 42; // EventAction
+        public const int DamageRequest = 48; // EventAction<IEntity, Vector3, float>
+        public const int DamageEvent = 49; // EventAction<IEntity, Vector3, float>
 
 
         ///Extensions
@@ -114,5 +116,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetReloadWeaponRequest(this IEntity obj, EventAction value) => obj.SetValue(ReloadWeaponRequest, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static EventAction<IEntity, Vector3, float> GetDamageRequest(this IEntity obj) => obj.GetValue<EventAction<IEntity, Vector3, float>>(DamageRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDamageRequest(this IEntity obj, out EventAction<IEntity, Vector3, float> value) => obj.TryGetValue(DamageRequest, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDamageRequest(this IEntity obj, EventAction<IEntity, Vector3, float> value) => obj.AddValue(DamageRequest, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDamageRequest(this IEntity obj) => obj.HasValue(DamageRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDamageRequest(this IEntity obj) => obj.DelValue(DamageRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDamageRequest(this IEntity obj, EventAction<IEntity, Vector3, float> value) => obj.SetValue(DamageRequest, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static EventAction<IEntity, Vector3, float> GetDamageEvent(this IEntity obj) => obj.GetValue<EventAction<IEntity, Vector3, float>>(DamageEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDamageEvent(this IEntity obj, out EventAction<IEntity, Vector3, float> value) => obj.TryGetValue(DamageEvent, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDamageEvent(this IEntity obj, EventAction<IEntity, Vector3, float> value) => obj.AddValue(DamageEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDamageEvent(this IEntity obj) => obj.HasValue(DamageEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDamageEvent(this IEntity obj) => obj.DelValue(DamageEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDamageEvent(this IEntity obj, EventAction<IEntity, Vector3, float> value) => obj.SetValue(DamageEvent, value);
     }
 }

@@ -159,6 +159,12 @@ MonoBehaviour:
     - id: 42
       name: ReloadWeaponRequest
       type: EventAction
+    - id: 48
+      name: DamageRequest
+      type: EventAction<IEntity, Vector3, float>
+    - id: 49
+      name: DamageEvent
+      type: EventAction<IEntity, Vector3, float>
   - name: Stats
     indexes:
     - id: 43

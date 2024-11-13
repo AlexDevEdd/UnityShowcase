@@ -22,10 +22,11 @@ namespace GamePlay
         public void Enable(IEntity entity)
         {
             _collisionObserver.OnEnter += CollisionObserverOnEnter;
+            _countdown.Start();
             _countdown.OnEnded += CountdownOnEnded;
         }
 
-        private void CollisionObserverOnEnter(Collider col)
+        private void CollisionObserverOnEnter(Collision col)
         {
             _dieAction?.Invoke(_entity);
         }
@@ -39,6 +40,7 @@ namespace GamePlay
         {
             _collisionObserver.OnEnter -= CollisionObserverOnEnter;
             _countdown.OnEnded -= CountdownOnEnded;
+            _countdown.Stop();
         }
     }
 }

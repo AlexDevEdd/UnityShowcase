@@ -28,11 +28,16 @@ namespace GamePlay
             entity.AddRigidbody(_rigidbody);
             entity.AddMoveSpeed(new ReactiveFloat(_moveSpeed));
             entity.AddLifeTimer(new Countdown(_lifeTime));
-
+            
             entity.AddDieAction(new EventAction<IEntity>());
             entity.AddCollisionObserver(_collisionObserver);
             
             entity.AddSceneEntity(GetComponent<SceneEntity>());
+            entity.AddDamage(new ReactiveFloat(0));
+
+            entity.AddBehaviour<RigidBodyMovementBehaviour>();
+            entity.AddBehaviour<DamageRequestNotifier>();
+            entity.AddBehaviour<ReturnToPoolBehaviour>();
         }
     }
 }

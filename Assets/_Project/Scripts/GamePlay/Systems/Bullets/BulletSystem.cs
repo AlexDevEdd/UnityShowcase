@@ -41,7 +41,8 @@ namespace GamePlay
             
             _currentWeapon.Value.GetFireAction().Invoke();
             var direction = (_aimTransform.position - firePoint.position).normalized;
-            _bulletFactory.GetOrCreate(projectileType, firePoint, direction);
+            var bullet = _bulletFactory.GetOrCreate(projectileType, firePoint, direction);
+            bullet.GetDamage().Value = _currentWeapon.Value.GetDamage().Value;
         }
 
         public void OnFinish()

@@ -249,18 +249,23 @@ MonoBehaviour:
       data:
         conditions:
         - rid: 2364857372039446597
-        - rid: 2364857372039446598
+        - rid: 2364857414788579332
     - rid: 2364857372039446597
       type: {class: HasTargetBlackboardCondition, ns: GamePlay, asm: GamePlay}
-      data: 
-    - rid: 2364857372039446598
-      type: {class: IsAliveBlackboardCondition, ns: GamePlay, asm: GamePlay}
       data: 
     - rid: 2364857372039446600
       type: {class: DisableAIBlackboardAction, ns: GamePlay, asm: GamePlay}
       data:
         _sceneBehaviourTree: {fileID: 3144517419255235998}
         _sceneBehaviourGroup: {fileID: 3819200705513309381}
+    - rid: 2364857414788579332
+      type: {class: NotBlackboardCondition, ns: Atomic.AI, asm: Atomic.AI.Elements}
+      data:
+        condition:
+          rid: 2364857414788579333
+    - rid: 2364857414788579333
+      type: {class: IsAliveBlackboardCondition, ns: GamePlay, asm: GamePlay}
+      data: 
     - rid: 2770693736993652790
       type: {class: BTNodeAborter, ns: Atomic.AI, asm: Atomic.AI.BehaviourTree}
       data:
@@ -1744,6 +1749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2124324060597749272}
   - component: {fileID: 2026890910151179480}
+  - component: {fileID: 499916771333475775}
   m_Layer: 0
   m_Name: Character_Alien_Male_02
   m_TagString: Untagged
@@ -1789,6 +1795,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &499916771333475775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123168690446796714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995e86318b0a44b8bb800ca7f1cec3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 1357598977454540433}
 --- !u!1 &2123173578806708126
 GameObject:
   m_ObjectHideFlags: 0

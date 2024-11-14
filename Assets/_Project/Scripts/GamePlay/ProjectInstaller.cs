@@ -10,7 +10,6 @@ namespace GamePlay
         {
             AssetProviderInstaller.Install(Container);
             SceneLoaderInstaller.Install(Container);
-            SaveLoadInstaller.Install(Container);
             CursorInstaller.Install(Container);
             
              Container.BindInterfacesAndSelfTo<WeaponIconProvider>()

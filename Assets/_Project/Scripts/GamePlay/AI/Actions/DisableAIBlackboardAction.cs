@@ -13,6 +13,8 @@ namespace GamePlay
         {
             _sceneBehaviourTree.enabled = false;
             _sceneBehaviourGroup.enabled = false;
+            blackboard.GetSelf().Disable();
+            blackboard.GetAgent().enabled = false;
         }
     }
 }

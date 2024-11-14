@@ -1,5 +1,6 @@
 ﻿using System;
 using Atomic.AI;
+using Atomic.Entities;
 
 namespace GamePlay
 {
@@ -8,7 +9,10 @@ namespace GamePlay
     {
         public bool Invoke(IBlackboard blackboard)
         {
-            return blackboard.HasTarget();
+            if (!blackboard.HasTarget()) return false;
+           
+            var target = blackboard.GetTarget();
+            return target != null && target.GetHealth().Value > 0f;
         }
     }
 }

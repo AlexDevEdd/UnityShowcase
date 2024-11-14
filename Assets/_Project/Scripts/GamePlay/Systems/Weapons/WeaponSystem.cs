@@ -10,7 +10,7 @@ using Zenject;
 namespace GamePlay
 {
     [UsedImplicitly]
-    public sealed class WeaponSystem : IInitializable, IGameStart, IGameFinish
+    public sealed class WeaponSystem : IInitializable, IGameFinish
     {
         public IEvent<int> SwitchWeaponAction;
         
@@ -20,7 +20,9 @@ namespace GamePlay
         private Transform _currentLeftHandIKTarget;
         private IVariable<IEntity> _currentWeapon;
         private IReactiveList<IEntity> _weapons;
-        
+
+        public IValue<IEntity> CurrentWeapon => _currentWeapon;
+
         public WeaponSystem(IEntity entity, IEntityWorld entityWorld)
         {
             _entity = entity;
@@ -34,12 +36,8 @@ namespace GamePlay
             _currentWeapon = _entity.GetCurrentWeapon();
             _weapons = new ReactiveList<IEntity>(_entityWorld.GetEntitiesWithTag(TagAPI.Weapon)
                 .OrderBy(entity => entity.GetHotBarSlotNumber().Value));
-        }
-        
-        public void OnStart()
-        {
+            
             SwitchWeaponAction.Subscribe(OnSwitchWeapon);
-            SwitchWeaponAction?.Invoke(1);
         }
         
         private void OnSwitchWeapon(int index)

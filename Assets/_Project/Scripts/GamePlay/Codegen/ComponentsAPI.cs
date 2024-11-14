@@ -19,6 +19,7 @@ namespace Atomic.Entities
         ///Keys
         public const int Agent = 45; // NavMeshAgent
         public const int Laser = 46; // LineRenderer
+        public const int Collider = 50; // Collider
 
 
         ///Extensions
@@ -57,5 +58,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetLaser(this IEntity obj, LineRenderer value) => obj.SetValue(Laser, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Collider GetCollider(this IEntity obj) => obj.GetValue<Collider>(Collider);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCollider(this IEntity obj, out Collider value) => obj.TryGetValue(Collider, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCollider(this IEntity obj, Collider value) => obj.AddValue(Collider, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCollider(this IEntity obj) => obj.HasValue(Collider);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCollider(this IEntity obj) => obj.DelValue(Collider);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCollider(this IEntity obj, Collider value) => obj.SetValue(Collider, value);
     }
 }

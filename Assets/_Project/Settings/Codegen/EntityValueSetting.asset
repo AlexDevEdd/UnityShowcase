@@ -181,3 +181,6 @@ MonoBehaviour:
     - id: 46
       name: Laser
       type: LineRenderer
+    - id: 50
+      name: Collider
+      type: Collider

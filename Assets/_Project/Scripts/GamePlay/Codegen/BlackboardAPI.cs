@@ -23,6 +23,7 @@ namespace Atomic.AI
         public const int Self = 9; // IEntity : class
         public const int Animator = 10; // Animator : class
         public const int IsAttacking = 11; // bool
+        public const int HandCollider = 12; // Collider : class
 
 
         ///Extensions
@@ -200,6 +201,22 @@ namespace Atomic.AI
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool DelIsAttacking(this IBlackboard obj) => obj.DelBool(IsAttacking);
+
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasHandCollider(this IBlackboard obj) => obj.HasObject(HandCollider);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Collider  GetHandCollider(this IBlackboard obj) => obj.GetObject<Collider >(HandCollider);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetHandCollider(this IBlackboard obj, out Collider  value) => obj.TryGetObject(HandCollider, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetHandCollider(this IBlackboard obj, Collider  value) => obj.SetObject(HandCollider, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelHandCollider(this IBlackboard obj) => obj.DelObject(HandCollider);
 
     }
 }

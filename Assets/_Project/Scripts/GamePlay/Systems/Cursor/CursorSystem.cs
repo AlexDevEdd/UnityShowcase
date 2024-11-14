@@ -2,7 +2,6 @@
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using Zenject;
 
 namespace GamePlay

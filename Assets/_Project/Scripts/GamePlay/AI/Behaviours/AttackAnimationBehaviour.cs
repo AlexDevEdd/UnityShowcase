@@ -10,7 +10,7 @@ namespace GamePlay
     [Serializable]
     public class AttackAnimationBehaviour : IAIEnable, IAIDisable
     {
-        private const float ATTACK_DELAY = 2f;
+        private const float ATTACK_DELAY = 2.5f;
         private static readonly int Attack = Animator.StringToHash("Attack");
         
         private EventAction _attackAction;

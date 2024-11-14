@@ -1,6 +1,8 @@
 ﻿using Atomic.Entities;
 using GameCycle;
+using SaveLoad;
 using UnityEngine;
+using Zenject;
 
 namespace GamePlay
 {
@@ -12,6 +14,13 @@ namespace GamePlay
     {
         private SceneEntityWorld _world;
         private bool _isStarted;
+        private ISaveSystem _saveLoader;
+
+        [Inject]
+        private void Construct(ISaveSystem saveSystem)
+        {
+            _saveLoader = saveSystem;
+        }
         
         private void Awake()
         {
@@ -54,8 +63,11 @@ namespace GamePlay
 
         private void OnDestroy()
         {
-            if (_isStarted) 
+            if (_isStarted)
+            {
+                _saveLoader.Save();
                 _world.DisposeEntities();
+            } 
         }
     }
 }

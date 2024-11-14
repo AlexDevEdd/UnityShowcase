@@ -62,7 +62,7 @@ namespace SaveLoad
 
         public void Dispose()
         {
-            Save();
+            //Save();
         }
     }
 }

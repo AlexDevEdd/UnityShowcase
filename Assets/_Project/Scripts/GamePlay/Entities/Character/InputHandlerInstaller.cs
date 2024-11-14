@@ -13,6 +13,7 @@ namespace GamePlay
             BindCharacterFireInputHandler(); 
             BindWeaponReloadInputHandler();
             BindWeaponSwitchInputHandler();
+            BindInputDisabler();
         }
 
         private void BindWeaponSwitchInputHandler()
@@ -46,6 +47,12 @@ namespace GamePlay
         private void BindCharacterMovementInputHandler()
         {
             Container.BindInterfacesAndSelfTo<CharacterMovementInputHandler>()
+                .AsSingle()
+                .NonLazy();
+        }
+        private void BindInputDisabler()
+        {
+            Container.BindInterfacesAndSelfTo<InputDisabler>()
                 .AsSingle()
                 .NonLazy();
         }

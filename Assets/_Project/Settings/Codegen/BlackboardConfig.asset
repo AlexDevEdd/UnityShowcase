@@ -58,3 +58,6 @@ MonoBehaviour:
   - id: 11
     name: IsAttacking
     type: bool
+  - id: 12
+    name: HandCollider
+    type: 'Collider : class'

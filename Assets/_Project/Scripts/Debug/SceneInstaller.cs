@@ -27,6 +27,8 @@ namespace Debug
                 .FromInstance(_sceneEntityWorld)
                 .AsSingle()
                 .NonLazy();
+            
+            SaveLoadInstaller.Install(Container);
         }
     }
 }

@@ -2,6 +2,7 @@
 using Atomic.Entities;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace GamePlay
 {
@@ -13,6 +14,9 @@ namespace GamePlay
         [SerializeField]
         private int _initHealth = 20;
         
+        [SerializeField] 
+        private CollisionObserver _collisionObserver;
+        
         public override void Install(IEntity entity)
         {
             //tags
@@ -22,13 +26,16 @@ namespace GamePlay
             //components
             entity.AddTransform(transform);
             entity.AddAgent(_agent);
-            
+            entity.AddCollisionObserver(_collisionObserver);
+           
             //params
+            entity.AddDamage(new ReactiveFloat(20));
             entity.AddMoveDirection(new ReactiveVector3(Vector3.zero));
             entity.AddHealth(new ReactiveFloat(_initHealth));   
             entity.AddMoveSpeed(new ReactiveFloat(0));
             
             //behaviours
+            entity.AddBehaviour<DamageRequestNotifier>();
             entity.AddBehaviour<DamageRequestBehaviour>();
             entity.AddBehaviour<ApplyDamageBehaviour>();
 

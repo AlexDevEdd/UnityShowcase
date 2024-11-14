@@ -3,7 +3,13 @@ using UnityEngine;
 
 namespace GamePlay
 {
-    public interface IInput : IMoveInput, IRunInput, IAimInput, IFireInput, IReloadInput, ISwitchWeaponInput { }
+    public interface IInput : IEnabledInput, IMoveInput, IRunInput, IAimInput, IFireInput, IReloadInput, ISwitchWeaponInput { }
+    
+    public interface IEnabledInput
+    {
+        public void EnableInput();
+        public void DisableInput();
+    }
     
     public interface IMoveInput
     {
